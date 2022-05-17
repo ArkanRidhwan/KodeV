@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Latihan1</string>
+    <string name="tv_username">Arkan Ridhwan</string>
+    <string name="tv_totalcomments">View all 3 comments</string>
+    <string name="tv_contentuploads">Lorem ipsum dolor sit amet, consectetur adipiscing elitsed do eiusmod tempor incididunt ut labore et dolore magna aliqua</string>
+    <string name="tv_total_likes">100 Likes</string>
+    <string name="tv_tittleupload">Arkan Ridhwan</string>
+    <string name="tv_detail">ABOUT USER</string>
+    <string name="tv_detailUsername">Arkan Ridhwan</string>
+    <string name="tv_detailUploadAt">Uploaded At:</string>
+    <string name="tv_detailSize">Size:</string>
+    <string name="tv_detailContentRating">Content Rating:</string>
+    <string name="tv_detailUploadedAtResult">15 Mei 2022</string>
+    <string name="tv_detailSizeResult">20 MB</string>
+    <string name="tv_detailContentRatingResult">Good</string>
+    <string name="contain_username_postingan">%s %s</string>
+</resources>

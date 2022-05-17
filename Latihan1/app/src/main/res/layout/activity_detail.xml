@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailActivity">
+
+    <ImageView
+        android:id="@+id/iv_detailImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tv_detailUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/tv_detailUsername"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_detailImage" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detailUsername">
+
+        <TextView
+            android:id="@+id/tv_detailUploadAt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:padding="5dp"
+            android:text="@string/tv_detailUploadAt"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/tv_detailSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:padding="5dp"
+            android:text="@string/tv_detailSize"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/tv_detailContentRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:padding="5dp"
+            android:text="@string/tv_detailContentRating"
+            android:textColor="#000000" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout">
+
+        <TextView
+            android:id="@+id/tv_detailUploadedAtResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/tv_detailUploadedAtResult"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/tv_detailSizeResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:padding="5dp"
+            android:text="@string/tv_detailSizeResult"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/tv_detailContentRatingResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:padding="5dp"
+            android:text="@string/tv_detailContentRatingResult"
+            android:textColor="#000000" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_detailContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/roboto"
+        android:padding="5dp"
+        android:text="Content:"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <TextView
+        android:id="@+id/tv_detailContentResult"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:padding="5dp"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua&quot;"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+        app:layout_constraintStart_toStartOf="@+id/tv_detailContent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detailContent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

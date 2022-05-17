@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="350dp"
+    app:cardCornerRadius="10dp"
+    app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#54504C">
+
+        <ImageView
+            android:id="@+id/iv_rvImage"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <ImageView
+            android:id="@+id/iv_rvPlatform"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_rvImage"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tv_rvRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/square"
+            android:gravity="center"
+            android:text="50"
+            android:textColor="#0A8AD2"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_rvImage" />
+
+        <TextView
+            android:id="@+id/tv_rvTittle"
+            android:layout_width="220dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/roboto"
+            android:text="Tittle"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/iv_rvPlatform"
+            app:layout_constraintTop_toBottomOf="@+id/iv_rvPlatform" />
+
+        <TextView
+            android:id="@+id/tv_rvReleaseDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/roboto"
+            android:text="Release Date:"
+            android:textColor="#D6CAB0"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_rvTittle"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rvTittle" />
+
+        <TextView
+            android:id="@+id/tv_rvReleaseDateContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/roboto"
+            android:text="April, 28 2022"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/tv_rvReleaseDate"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rvTittle" />
+
+        <TextView
+            android:id="@+id/tv_rvGenres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/roboto"
+            android:text="Genres:"
+            android:textColor="#D6CAB0"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_rvReleaseDate"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rvReleaseDate" />
+
+        <TextView
+            android:id="@+id/tv_rvGenresContent"
+            android:layout_width="160dp"
+            android:layout_height="17dp"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/roboto"
+            android:text="Action"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_rvReleaseDateContent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rvReleaseDateContent" />
+
+        <TextView
+            android:id="@+id/tv_rvChart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/roboto"
+            android:text="Chart:"
+            android:textColor="#D6CAB0"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_rvGenres"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rvGenres" />
+
+        <TextView
+            android:id="@+id/tv_rvChartContent"
+            android:layout_width="160dp"
+            android:layout_height="17dp"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/roboto"
+            android:text="Top 22 "
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_rvGenresContent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rvGenresContent" />
+
+        <TextView
+            android:id="@+id/tv_rvRequirement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="@string/requrement"
+            android:textColor="#D6CAB0"
+            android:textSize="12sp"
+            android:layout_marginTop="2dp"
+            app:layout_constraintStart_toStartOf="@+id/tv_rvChart"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rvChart" />
+
+        <TextView
+            android:id="@+id/tv_rvRequirementContent"
+            android:layout_width="160dp"
+            android:layout_height="17dp"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/lorem_ipsum"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_rvChartContent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rvChartContent" />
+
+        <TextView
+            android:id="@+id/tv_rvStores"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/contoh"
+            android:textColor="#FFFFFF"
+            app:layout_constraintStart_toStartOf="@+id/tv_rvRequirementContent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rvRequirementContent" />
+
+        <TextView
+            android:id="@+id/tv_rvStoresContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stores"
+            android:textColor="#D6CAB0"
+            app:layout_constraintStart_toStartOf="@+id/tv_rvRequirement"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rvRequirementContent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Latihan2</string>
+    <string name="requrement">Requrement:</string>
+    <string name="lorem_ipsum">Lorem ipsum</string>
+    <string name="stores">Stores:</string>
+    <string name="contoh">Contoh</string>
+</resources>

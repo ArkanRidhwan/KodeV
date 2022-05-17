@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="1200dp"
+    android:background="#121212"
+    android:fillViewport="true"
+    app:layout_editor_absoluteX="1dp"
+    app:layout_editor_absoluteY="1dp"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_mainNama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/circle"
+            android:fontFamily="@font/roboto"
+            android:gravity="center"
+            android:text="Arkan Ridhwan"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_mainTotalReviews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="116dp"
+            android:fontFamily="@font/roboto"
+            android:text="10"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/tv_mainTotalCollections"
+            app:layout_constraintTop_toTopOf="@+id/tv_mainTotalCollections" />
+
+        <TextView
+            android:id="@+id/tv_mainReviews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/roboto"
+            android:text="Reviews"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tv_mainTotalGames"
+            app:layout_constraintHorizontal_bias="0.472"
+            app:layout_constraintStart_toStartOf="@+id/tv_mainTotalGames"
+            app:layout_constraintTop_toBottomOf="@+id/tv_mainTotalGames" />
+
+        <TextView
+            android:id="@+id/tv_mainTotalGames"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="100dp"
+            android:fontFamily="@font/roboto"
+            android:text="20"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/tv_mainTotalCollections"
+            app:layout_constraintTop_toTopOf="@+id/tv_mainTotalCollections" />
+
+        <TextView
+            android:id="@+id/tv_mainGames"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Games"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tv_mainTotalCollections"
+            app:layout_constraintStart_toStartOf="@+id/tv_mainTotalCollections"
+            app:layout_constraintTop_toBottomOf="@+id/tv_mainTotalCollections" />
+
+        <TextView
+            android:id="@+id/tv_mainTotalCollections"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/roboto"
+            android:text="50"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tv_mainNama"
+            app:layout_constraintStart_toStartOf="@+id/tv_mainNama"
+            app:layout_constraintTop_toBottomOf="@+id/tv_mainNama" />
+
+        <TextView
+            android:id="@+id/tv_mainCollections"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/roboto"
+            android:text="Collections"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tv_mainTotalReviews"
+            app:layout_constraintStart_toStartOf="@+id/tv_mainTotalReviews"
+            app:layout_constraintTop_toBottomOf="@+id/tv_mainTotalReviews" />
+
+        <TextView
+            android:id="@+id/tv_mainListGames"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="60dp"
+            android:fontFamily="@font/roboto"
+            android:text="List Of Games"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_mainReviews" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_mainListGames"
+            tools:listitem="@layout/list_games">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
