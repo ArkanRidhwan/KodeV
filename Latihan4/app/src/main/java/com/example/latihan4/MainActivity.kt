@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         TabLayoutMediator(binding.tabLayout, binding.viewPager){
             tab, position -> tab.text = resources.getString(TAB_TITTLES[position])
         }.attach()
+
     }
 
     companion object{
