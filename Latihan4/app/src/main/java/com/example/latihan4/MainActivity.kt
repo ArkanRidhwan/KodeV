@@ -15,11 +15,11 @@ class MainActivity : AppCompatActivity() {
         binding =ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val sectionsPagerAdapter = SectionsPagerAdapter(this@MainActivity)
-        binding.viewPager.adapter = sectionsPagerAdapter
-        TabLayoutMediator(binding.tabLayout, binding.viewPager){
-            tab, position -> tab.text = resources.getString(TAB_TITTLES[position])
-        }.attach()
+//        val sectionsPagerAdapter = SectionsPagerAdapter(this@MainActivity)
+//        binding.viewPager.adapter = sectionsPagerAdapter
+//        TabLayoutMediator(binding.tabLayout, binding.viewPager){
+//            tab, position -> tab.text = resources.getString(TAB_TITTLES[position])
+//        }.attach()
 
     }
 

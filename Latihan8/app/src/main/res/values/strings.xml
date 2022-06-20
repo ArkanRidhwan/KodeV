@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Latihan8</string>
+
+    <string-array name="data_makanan">
+        <item>Rendang</item>
+        <item>Bakso</item>
+        <item>Mie Ayam</item>
+        <item>Nasi Goreng</item>
+        <item>Gado-Gado</item>
+        <item>Rendang</item>
+        <item>Bakso</item>
+        <item>Mie Ayam</item>
+        <item>Nasi Goreng</item>
+        <item>Gado-Gado</item>
+    </string-array>
+
+    <integer-array name="foto_makanan">
+        <item>@drawable/rendang</item>
+        <item>@drawable/bakso</item>
+        <item>@drawable/mieayam</item>
+        <item>@drawable/nasigoreng</item>
+        <item>@drawable/gadogado</item>
+        <item>@drawable/rendang</item>
+        <item>@drawable/bakso</item>
+        <item>@drawable/mieayam</item>
+        <item>@drawable/nasigoreng</item>
+        <item>@drawable/gadogado</item>
+    </integer-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
