@@ -1,5 +1,6 @@
 package com.example.latihan121.data.source.local
 
+import androidx.lifecycle.LiveData
 import androidx.paging.DataSource
 import com.example.latihan121.data.source.local.entity.Dao
 import com.example.latihan121.data.source.local.entity.GameEntity
@@ -31,11 +32,11 @@ class LocalDataSource private constructor(private val dao: Dao) {
         dao.updateKartun(kartunEntity)
     }
 
-    fun getLocalNasa(): DataSource.Factory<Int, NasaEntity> = dao.getLocalNasa()
+    fun getLocalNasa(): LiveData<List<NasaEntity>> = dao.getLocalNasa()
     fun getFavoriteNasa(): DataSource.Factory<Int, NasaEntity> = dao.getFavoriteNasa()
     fun insertNasa(listNasaEntity: List<NasaEntity>) = dao.insertNasa(listNasaEntity)
-    fun updateNasa(nasaEntity: NasaEntity, newState: Boolean){
+    /*fun updateNasa(nasaEntity: NasaEntity, newState: Boolean){
         nasaEntity.favorite = newState
         dao.updateNasa(nasaEntity)
-    }
+    }*/
 }

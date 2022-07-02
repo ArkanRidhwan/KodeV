@@ -17,8 +17,7 @@ class Repository private constructor(
     private val remoteDataSource: RemoteDataSource,
     private val localDataSource: LocalDataSource,
     private val appExecutors: AppExecutors
-) :
-    DataSource {
+) : DataSource {
 
     companion object {
         @Volatile
@@ -97,7 +96,7 @@ class Repository private constructor(
         }.asLiveData()
     }
 
-    override fun getFavoritesGames(): LiveData<Resource<PagedList<GameEntity>>> {
+    override fun getFavoritesGames(): LiveData<PagedList<GameEntity>> {
         val config = PagedList.Config.Builder()
             .setEnablePlaceholders(false)
             .setInitialLoadSizeHint(4)

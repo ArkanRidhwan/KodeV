@@ -1,4 +1,4 @@
-package com.example.latihan121.data.source.remote
+package com.example.latihan121.data.source.remote.response
 
 enum class StatusResponse {
     SUCCES,

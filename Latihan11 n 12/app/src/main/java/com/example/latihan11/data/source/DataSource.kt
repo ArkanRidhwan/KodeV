@@ -10,7 +10,7 @@ interface DataSource {
 
     //Game
     fun getGames(): LiveData<Resource<PagedList<GameEntity>>>
-    fun getFavoritesGames(): LiveData<Resource<PagedList<GameEntity>>>
+    fun getFavoritesGames(): LiveData<PagedList<GameEntity>>
     fun updateGame(game: GameEntity, newState: Boolean)
 
     //Kartun

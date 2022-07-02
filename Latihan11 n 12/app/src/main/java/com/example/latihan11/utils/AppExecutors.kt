@@ -21,7 +21,7 @@ class AppExecutors(
         MainThreadExecutor()
     )
 
-    fun diskIO() : Executor = diskIO
+    fun diskIO(): Executor = diskIO
 
     fun networkIO(): Executor = networkIO
 

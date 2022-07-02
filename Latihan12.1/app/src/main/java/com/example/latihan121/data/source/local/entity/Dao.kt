@@ -1,5 +1,6 @@
 package com.example.latihan121.data.source.local.entity
 
+import androidx.lifecycle.LiveData
 import androidx.paging.DataSource
 import androidx.room.*
 import androidx.room.Dao
@@ -34,7 +35,7 @@ interface Dao {
 
     //Nasa
     @Query("SELECT * FROM tb_nasa")
-    fun getLocalNasa(): DataSource.Factory<Int, NasaEntity>
+    fun getLocalNasa(): LiveData<List<NasaEntity>>
 
     @Query("SELECT * FROM tb_nasa WHERE favorite = 1")
     fun getFavoriteNasa(): DataSource.Factory<Int, NasaEntity>
@@ -42,6 +43,6 @@ interface Dao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertNasa(nasa: List<NasaEntity>)
 
-    @Update
-    fun updateNasa(nasa: NasaEntity)
+    /*@Update
+    fun updateNasa(nasa: NasaEntity)*/
 }

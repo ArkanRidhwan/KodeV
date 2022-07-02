@@ -1,7 +1,7 @@
 package com.example.latihan121.data.source.remote.response.nasa
 
 data class ResponseNasaItem(
-    val copyright: String,
+    val copyright: String? = null,
     val date: String,
     val explanation: String,
     val hdurl: String,

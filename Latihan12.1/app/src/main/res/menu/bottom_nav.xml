@@ -7,17 +7,17 @@
         android:title="Home" />
 
     <item
-        android:id="@+id/kartunFragment"
+        android:id="@+id/kartunMainFragment"
         android:icon="@drawable/ic_kartun"
         android:title="Kartun" />
 
     <item
-        android:id="@+id/gameFragment"
+        android:id="@+id/gameMainFragment"
         android:icon="@drawable/ic_game"
         android:title="Game" />
 
     <item
-        android:id="@+id/nasaFragment"
+        android:id="@+id/nasaMainFragment"
         android:icon="@drawable/ic_nasa"
         android:title="Nasa" />
 

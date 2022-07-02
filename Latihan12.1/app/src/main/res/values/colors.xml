@@ -7,5 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#FFEB3B</color>
+    <color name="colorPrimaryVariant">#FFC107</color>
+    <color name="colorSecondary">#FF03DAC5</color>
+    <color name="colorSecondaryVariant">#FF018786</color>
+    <color name="colorSoftBlack">#202020</color>
+    <color name="placeholder">#6FB6B6B6</color>
+    <color name="bgColorBackButton">#80434343</color>
     <color name="biru">#11A3DA</color>
 </resources>

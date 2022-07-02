@@ -4,13 +4,14 @@ import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.util.*
 
 @Entity(tableName = "tb_nasa")
 data class NasaEntity(
     @PrimaryKey
     @NonNull
     @ColumnInfo(name = "id")
-    var id: Int,
+    var id: String = UUID.randomUUID().toString(),
 
     @ColumnInfo(name = "title")
     var title: String,
@@ -29,4 +30,4 @@ data class NasaEntity(
 
     @ColumnInfo(name = "favorite")
     var favorite: Boolean = false,
-    )
+)

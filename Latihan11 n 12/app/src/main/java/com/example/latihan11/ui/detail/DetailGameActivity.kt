@@ -45,6 +45,7 @@ class DetailGameActivity : AppCompatActivity() {
                 else
                     Snackbar.make(it, "Berhasil ditambah ke favorit", Snackbar.LENGTH_SHORT).show()
             }
+
             populateToolbar()
             populateView()
         }

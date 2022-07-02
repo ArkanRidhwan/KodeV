@@ -43,7 +43,14 @@ class FavoriteFragment : Fragment() {
             requireActivity().startActivity(intent)
         }
 
-        viewModel.getFavoriteGame().observe(viewLifecycleOwner) {
+        viewModel.getFavoriteGame().observe(viewLifecycleOwner){
+            if(it != null){
+                binding.progressBar.visibility = View.GONE
+                favoriteAdapter.submitList(it)
+            }
+        }
+
+        /*viewModel.getFavoriteGame().observe(viewLifecycleOwner) {
             if (it != null) {
                 when (it.status) {
                     Status.LOADING -> {
@@ -61,6 +68,6 @@ class FavoriteFragment : Fragment() {
                     }
                 }
             }
-        }
+        }*/
     }
 }

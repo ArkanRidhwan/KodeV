@@ -15,8 +15,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        mainViewModel.nomor.observe(this) { data ->
-            binding.textView.text = data.toString()
+        mainViewModel.nomor.observe(this) {
+            binding.textView.text = it.toString()
         }
 
         binding.button.setOnClickListener {

@@ -11,7 +11,7 @@ class GameViewModel(private val gameRepository: Repository): ViewModel() {
 
     fun getGames(): LiveData<Resource<PagedList<GameEntity>>> = gameRepository.getGames()
 
-    fun getFavoriteGame(): LiveData<Resource<PagedList<GameEntity>>> = gameRepository.getFavoritesGames()
+    fun getFavoriteGame(): LiveData<PagedList<GameEntity>> = gameRepository.getFavoritesGames()
 
     fun updateGame(gameEntity: GameEntity, newState: Boolean) = gameRepository.updateGame(gameEntity, newState)
 

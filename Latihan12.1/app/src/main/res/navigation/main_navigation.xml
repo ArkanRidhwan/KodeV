@@ -11,40 +11,39 @@
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
-            android:id="@+id/action_mainFragment_to_kartunFragment"
-            app:destination="@id/kartunFragment" />
+            android:id="@+id/action_mainFragment_to_gameMainFragment"
+            app:destination="@id/gameMainFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_gameFragment"
-            app:destination="@id/gameFragment" />
+            android:id="@+id/action_mainFragment_to_kartunMainFragment"
+            app:destination="@id/kartunMainFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_nasaFragment"
-            app:destination="@id/nasaFragment" />
+            android:id="@+id/action_mainFragment_to_nasaMainFragment"
+            app:destination="@id/nasaMainFragment" />
     </fragment>
     <fragment
-        android:id="@+id/gameFragment"
-        android:name="com.example.latihan121.ui.game.GameFragment"
-        android:label="fragment_game"
-        tools:layout="@layout/fragment_game" >
+        android:id="@+id/gameMainFragment"
+        android:name="com.example.latihan121.ui.game.GameMainFragment"
+        android:label="fragment_game_main"
+        tools:layout="@layout/fragment_game_main" />
+    <fragment
+        android:id="@+id/kartunMainFragment"
+        android:name="com.example.latihan121.ui.kartun.KartunMainFragment"
+        android:label="fragment_kartun_main"
+        tools:layout="@layout/fragment_kartun_main" >
         <action
-            android:id="@+id/action_gameFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            android:id="@+id/action_kartunMainFragment_to_gameMainFragment"
+            app:destination="@id/gameMainFragment" />
     </fragment>
     <fragment
-        android:id="@+id/nasaFragment"
-        android:name="com.example.latihan121.ui.nasa.NasaFragment"
-        android:label="fragment_nasa"
-        tools:layout="@layout/fragment_nasa" >
+        android:id="@+id/nasaMainFragment"
+        android:name="com.example.latihan121.ui.nasa.NasaMainFragment"
+        android:label="fragment_nasa_main"
+        tools:layout="@layout/fragment_nasa_main" >
         <action
-            android:id="@+id/action_nasaFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/kartunFragment"
-        android:name="com.example.latihan121.ui.kartun.KartunFragment"
-        android:label="fragment_kartun"
-        tools:layout="@layout/fragment_kartun" >
+            android:id="@+id/action_nasaMainFragment_to_gameMainFragment"
+            app:destination="@id/gameMainFragment" />
         <action
-            android:id="@+id/action_kartunFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            android:id="@+id/action_nasaMainFragment_to_kartunMainFragment"
+            app:destination="@id/kartunMainFragment" />
     </fragment>
 </navigation>
