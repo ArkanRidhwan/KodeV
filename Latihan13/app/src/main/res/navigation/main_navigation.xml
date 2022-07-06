@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/memeMainFragment">
+
+    <fragment
+        android:id="@+id/gameMainFragment"
+        android:name="com.example.latihan13.ui.game.GameMainFragment"
+        android:label="fragment_game_main"
+        tools:layout="@layout/fragment_game_main" />
+    <fragment
+        android:id="@+id/kartunMainFragment"
+        android:name="com.example.latihan13.ui.kartun.KartunMainFragment"
+        android:label="fragment_kartun_main"
+        tools:layout="@layout/fragment_kartun_main" >
+        <action
+            android:id="@+id/action_kartunMainFragment_to_gameMainFragment"
+            app:destination="@id/gameMainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nasaMainFragment"
+        android:name="com.example.latihan13.ui.nasa.NasaMainFragment"
+        android:label="fragment_nasa_main"
+        tools:layout="@layout/fragment_nasa_main" >
+        <action
+            android:id="@+id/action_nasaMainFragment_to_gameMainFragment"
+            app:destination="@id/gameMainFragment" />
+        <action
+            android:id="@+id/action_nasaMainFragment_to_kartunMainFragment"
+            app:destination="@id/kartunMainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/memeMainFragment"
+        android:name="com.example.latihan13.ui.meme.MemeMainFragment"
+        android:label="fragment_meme_main"
+        tools:layout="@layout/fragment_meme_main" />
+</navigation>
