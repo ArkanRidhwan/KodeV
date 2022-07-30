@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.latihan13.core.data.source.remote.api.ApiConfig
 import com.example.latihan13.core.data.source.remote.response.game.ResponseGame
 import com.example.latihan13.core.data.source.remote.response.kartun.ResponseKartun
-import com.example.latihan13.core.data.source.remote.response.meme.Data
+import com.example.latihan13.core.data.source.remote.response.meme.ResponseMeme
 import com.example.latihan13.core.data.source.remote.response.nasa.ResponseNasaItem
 import retrofit2.Call
 import retrofit2.Callback
@@ -88,11 +88,11 @@ class RemoteDataSource {
         return responseNasa
     }
 
-    fun getMeme(): LiveData<ApiResponse<Data>> {
-        val responseMeme = MutableLiveData<ApiResponse<Data>>()
+    fun getMeme(): LiveData<ApiResponse<ResponseMeme>> {
+        val responseMeme = MutableLiveData<ApiResponse<ResponseMeme>>()
         val client = ApiConfig.getApiServiceMeme().getMeme()
-        client.enqueue(object : Callback<Data> {
-            override fun onResponse(call: Call<Data>, response: Response<Data>) {
+        client.enqueue(object : Callback<ResponseMeme> {
+            override fun onResponse(call: Call<ResponseMeme>, response: Response<ResponseMeme>) {
                 if (response.isSuccessful) {
                     response.body()?.let {
                         responseMeme.value = ApiResponse.success(it)
@@ -102,7 +102,7 @@ class RemoteDataSource {
                 }
             }
 
-            override fun onFailure(call: Call<Data>, t: Throwable) {
+            override fun onFailure(call: Call<ResponseMeme>, t: Throwable) {
                 Log.d(TAG, "onFailure: ${t.localizedMessage}")
             }
 

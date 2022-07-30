@@ -7,6 +7,7 @@ import com.example.latihan13.core.data.source.remote.response.StatusResponse
 import com.example.latihan13.utils.AppExecutors
 import com.example.latihan13.vo.Resource
 
+@Suppress("LeakingThis")
 abstract class NetworkBoundResource<ResultType, RequestType>(private val mExecutor: AppExecutors) {
 
     private val result = MediatorLiveData<Resource<ResultType>>()
@@ -34,8 +35,7 @@ abstract class NetworkBoundResource<ResultType, RequestType>(private val mExecut
 
     protected abstract fun createCall(): LiveData<ApiResponse<RequestType>>
 
-    protected fun onFetchFailed(){}
-    //abstract fun onFetchFailed()
+    private fun onFetchFailed() {}
 
     abstract fun saveCallResult(it: RequestType)
 

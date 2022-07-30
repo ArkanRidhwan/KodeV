@@ -6,7 +6,7 @@ import com.example.latihan13.core.data.source.local.entity.MemeEntity
 import com.example.latihan13.core.data.source.local.entity.NasaEntity
 import com.example.latihan13.core.data.source.remote.response.game.ResponseGame
 import com.example.latihan13.core.data.source.remote.response.kartun.ResponseKartun
-import com.example.latihan13.core.data.source.remote.response.meme.Data
+import com.example.latihan13.core.data.source.remote.response.meme.ResponseMeme
 import com.example.latihan13.core.data.source.remote.response.nasa.ResponseNasaItem
 import com.example.latihan13.core.domain.model.Game
 import com.example.latihan13.core.domain.model.Kartun
@@ -85,7 +85,7 @@ object DataMapper {
         return input.map {
             Kartun(
                 it.id,
-                it.name,
+                it.image,
                 it.species,
                 it.name,
                 it.status,
@@ -166,9 +166,9 @@ object DataMapper {
         }
     }
 
-    fun mapResponseMemeToEntities(data: Data): List<MemeEntity>{
+    fun mapResponseMemeToEntities(data: ResponseMeme): List<MemeEntity>{
         val listMeme = ArrayList<MemeEntity>()
-        for(i in data.memes){
+        for(i in data.data.memes){
             val meme = MemeEntity(
                 i.id?:"No Data",
                 i.name?:"No Data",

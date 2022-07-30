@@ -11,8 +11,7 @@ import com.example.latihan11.R
 import com.example.latihan11.data.source.local.entity.KartunEntity
 import com.example.latihan11.databinding.LayoutListKartunBinding
 
-class KartunAdapter :
-    PagedListAdapter<KartunEntity, KartunAdapter.KartunViewHolder>(DIFF_CALLBACK) {
+class KartunAdapter : PagedListAdapter<KartunEntity, KartunAdapter.KartunViewHolder>(DIFF_CALLBACK) {
 
     companion object {
         private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<KartunEntity>() {

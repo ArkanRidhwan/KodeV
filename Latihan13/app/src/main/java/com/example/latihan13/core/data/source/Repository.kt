@@ -7,7 +7,7 @@ import com.example.latihan13.core.data.source.remote.response.ApiResponse
 import com.example.latihan13.core.data.source.remote.response.RemoteDataSource
 import com.example.latihan13.core.data.source.remote.response.game.ResponseGame
 import com.example.latihan13.core.data.source.remote.response.kartun.ResponseKartun
-import com.example.latihan13.core.data.source.remote.response.meme.Data
+import com.example.latihan13.core.data.source.remote.response.meme.ResponseMeme
 import com.example.latihan13.core.data.source.remote.response.nasa.ResponseNasaItem
 import com.example.latihan13.core.domain.model.Game
 import com.example.latihan13.core.domain.model.Kartun
@@ -146,7 +146,7 @@ class Repository private constructor(
     }
 
     override fun getMeme(): LiveData<Resource<List<Meme>>> {
-        return object : NetworkBoundResource<List<Meme>, Data>(appExecutors) {
+        return object : NetworkBoundResource<List<Meme>, ResponseMeme>(appExecutors) {
             override fun loadFromDB(): LiveData<List<Meme>> {
                 return Transformations.map(localDataSource.getLocalMeme()) {
                     DataMapper.mapMemeEntityToDomain(it)
@@ -157,11 +157,11 @@ class Repository private constructor(
                 return it == null || it.isEmpty()
             }
 
-            override fun createCall(): LiveData<ApiResponse<Data>> {
+            override fun createCall(): LiveData<ApiResponse<ResponseMeme>> {
                 return remoteDataSource.getMeme()
             }
 
-            override fun saveCallResult(it: Data) {
+            override fun saveCallResult(it: ResponseMeme) {
                 val lisMeme = DataMapper.mapResponseMemeToEntities(it)
                 localDataSource.insertMeme(lisMeme)
             }
