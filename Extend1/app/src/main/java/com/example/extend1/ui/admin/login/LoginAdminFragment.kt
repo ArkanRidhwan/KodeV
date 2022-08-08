@@ -7,13 +7,24 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import com.example.extend1.R
 import com.example.extend1.databinding.FragmentLoginAdminBinding
+import com.example.extend1.utils.Constant.USER_ID
+import com.example.extend1.utils.Constant.USER_ROLE
+import com.example.extend1.utils.getInstance
+import com.example.extend1.utils.gone
+import com.example.extend1.utils.showToast
+import com.example.extend1.utils.visible
 import com.google.firebase.auth.FirebaseAuth
-
+import kotlin.math.log
 
 class LoginAdminFragment : Fragment() {
 
+    private val loginViewModel: LoginViewModel by viewModels()
+    private val args: LoginAdminFragmentArgs by navArgs()
     private lateinit var binding: FragmentLoginAdminBinding
     private lateinit var auth: FirebaseAuth
 
@@ -29,35 +40,59 @@ class LoginAdminFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
         binding.apply {
             tvRegisterNow.setOnClickListener {
-                findNavController().navigate(LoginAdminFragmentDirections.actionLoginAdminFragmentToRegisterAdminFragment())
+                val action = LoginAdminFragmentDirections.actionLoginAdminFragmentToRegisterAdminFragment(args.role)
+                findNavController().navigate(action)
             }
             btnAdminLogin.setOnClickListener {
-                val email = etEmailAdminLogin.text.toString()
-                val password = etPasswordAdminLogin.text.toString()
-                if (email.isEmpty()) {
-                    etEmailAdminLogin.error = "Email tidak bisa kosong"
-                    etEmailAdminLogin.requestFocus()
-                } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                    etEmailAdminLogin.error = "Email tidak sesuai"
-                } else if (password.isEmpty()) {
-                    etPasswordAdminLogin.error = "Password tidak bisa kosong"
-                    etPasswordAdminLogin.requestFocus()
+                if (args.role == getString(R.string.user)) {
+                    val email = etEmailAdminLogin.text.toString()
+                    val password = etPasswordAdminLogin.text.toString()
+                    if (email.isEmpty()) {
+                        etEmailAdminLogin.error = "Email tidak bisa kosong"
+                        etEmailAdminLogin.requestFocus()
+                    } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                        etEmailAdminLogin.error = "Email tidak sesuai"
+                    } else if (password.isEmpty()) {
+                        etPasswordAdminLogin.error = "Password tidak bisa kosong"
+                        etPasswordAdminLogin.requestFocus()
+                    } else {
+                        binding.btnAdminLogin.gone()
+                        binding.progressCircular.visible()
+                        loginViewModel.loginUserByEmailPassword(email, password).observe(viewLifecycleOwner) {
+                            if (it != null) {
+                                loginFirebase(email, password)
+                                getInstance(requireContext()).putString(USER_ID, it.id)
+                                getInstance(requireContext()).putString(USER_ROLE, getString(R.string.user))
+                            } else {
+                                requireContext().showToast("Email atau Password Salah")
+                                binding.btnAdminLogin.visible()
+                                binding.progressCircular.gone()
+                            }
+                        }
+                    }
                 } else {
-                    loginFirebase(email, password)
+                    // login as admin
+
                 }
             }
         }
     }
 
+    // Login with authentication
     private fun loginFirebase(email: String, password: String) {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
-                    Toast.makeText(requireContext(), "Login Berhasil", Toast.LENGTH_SHORT).show()
-                    findNavController().navigate(LoginAdminFragmentDirections.actionLoginAdminFragmentToHomeAdminFragment())
-                } else {
-                    Toast.makeText(requireContext(), "Login Gagal", Toast.LENGTH_SHORT).show()
+                    requireContext().showToast("Login Berhasil, Welcome ${auth.currentUser?.email}")
+                    if (args.role == getString(R.string.admin))
+                        findNavController().navigate(LoginAdminFragmentDirections.actionLoginAdminFragmentToHomeAdminFragment())
+                    else
+                        findNavController().navigate(LoginAdminFragmentDirections.actionLoginAdminFragmentToHomeUserFragment())
+
                 }
+            }
+            .addOnFailureListener {
+                requireContext().showToast(it.message.toString())
             }
     }
 }

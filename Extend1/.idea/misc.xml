@@ -26,6 +26,10 @@
         <entry key="..\:/Arkan/Github/KodeV/Extend1/app/src/main/res/layout/layout_list_user.xml" value="0.2" />
         <entry key="..\:/Arkan/Github/KodeV/Extend1/app/src/main/res/menu/bottom_nav_admin.xml" value="0.24512820512820513" />
         <entry key="..\:/Arkan/Github/KodeV/Extend1/app/src/main/res/menu/bottom_nav_user.xml" value="0.24512820512820513" />
+        <entry key="app/src/main/res/layout/fragment_login_admin.xml" value="0.18888888888888888" />
+        <entry key="app/src/main/res/layout/fragment_register_admin.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/fragment_welcome.xml" value="0.28229166666666666" />
       </map>
     </option>
   </component>
