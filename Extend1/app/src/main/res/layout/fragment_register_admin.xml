@@ -35,7 +35,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/et_nama"
+                android:id="@+id/et_namaAdminRegister"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
@@ -54,9 +54,9 @@
                 android:ems="10"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
-                app:layout_constraintEnd_toEndOf="@+id/et_npwp"
-                app:layout_constraintStart_toStartOf="@+id/et_npwp"
-                app:layout_constraintTop_toBottomOf="@+id/et_npwp" />
+                app:layout_constraintEnd_toEndOf="@+id/et_npwpAdminRegister"
+                app:layout_constraintStart_toStartOf="@+id/et_npwpAdminRegister"
+                app:layout_constraintTop_toBottomOf="@+id/et_npwpAdminRegister" />
 
             <EditText
                 android:id="@+id/et_passwordAdminRegister"
@@ -70,16 +70,16 @@
                 app:layout_constraintTop_toBottomOf="@+id/et_emailAdminRegister" />
 
             <EditText
-                android:id="@+id/et_npwp"
+                android:id="@+id/et_npwpAdminRegister"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:ems="10"
                 android:hint="NPWP"
                 android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="@+id/et_nama"
-                app:layout_constraintStart_toStartOf="@+id/et_nama"
-                app:layout_constraintTop_toBottomOf="@+id/et_nama" />
+                app:layout_constraintEnd_toEndOf="@+id/et_namaAdminRegister"
+                app:layout_constraintStart_toStartOf="@+id/et_namaAdminRegister"
+                app:layout_constraintTop_toBottomOf="@+id/et_namaAdminRegister" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_register"

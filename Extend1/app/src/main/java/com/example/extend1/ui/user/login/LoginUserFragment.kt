@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.extend1.databinding.FragmentLoginUserBinding
-import com.example.extend1.ui.admin.login.LoginAdminFragmentDirections
 import com.google.firebase.auth.FirebaseAuth
 
 
@@ -39,25 +38,22 @@ class LoginUserFragment : Fragment() {
                     etEmailUserLogin.error = "Email tidak bisa kosong"
                     etEmailUserLogin.requestFocus()
                     return@setOnClickListener
-                }
-
-                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                     etEmailUserLogin.error = "Email tidak sesuai"
                     etEmailUserLogin.requestFocus()
                     return@setOnClickListener
-                }
-
-                if (password.isEmpty()) {
+                } else if (password.isEmpty()) {
                     etPasswordUserLogin.error = "Password tidak bisa kosong"
                     etPasswordUserLogin.requestFocus()
                     return@setOnClickListener
+                } else {
+                    loginFirebase(email, password)
                 }
-                LoginFirebase(email, password)
             }
         }
     }
 
-    private fun LoginFirebase(email: String, password: String) {
+    private fun loginFirebase(email: String, password: String) {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener {
                 if (it.isSuccessful) {

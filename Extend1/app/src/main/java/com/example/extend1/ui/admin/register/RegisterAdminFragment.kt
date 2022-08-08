@@ -29,50 +29,44 @@ class RegisterAdminFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
         binding.apply {
             btnRegister.setOnClickListener {
-                val nama = etNama.text.toString()
-                val npwp = etNpwp.text.toString()
+                val nama = etNamaAdminRegister.text.toString()
+                val npwp = etNpwpAdminRegister.text.toString()
                 val email = etEmailAdminRegister.text.toString()
                 val password = etPasswordAdminRegister.text.toString()
 
                 if (nama.isEmpty()) {
-                    etNama.error = "Nama tidak bisa kosong"
-                    etNama.requestFocus()
+                    etNamaAdminRegister.error = "Nama tidak bisa kosong"
+                    etNamaAdminRegister.requestFocus()
                     return@setOnClickListener
-                }
-
-                if (npwp.isEmpty()) {
-                    etNpwp.error = "NPWP tidak bisa kosong"
-                    etNpwp.requestFocus()
+                } else if (npwp.isEmpty()) {
+                    etNpwpAdminRegister.error = "NPWP tidak bisa kosong"
+                    etNpwpAdminRegister.requestFocus()
                     return@setOnClickListener
-                }
-
-                if (email.isEmpty()) {
+                } else if (email.isEmpty()) {
                     etEmailAdminRegister.error = "Email tidak bisa kosong"
                     etEmailAdminRegister.requestFocus()
                     return@setOnClickListener
-                }
-
-                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                     etEmailAdminRegister.error = "Email tidak sesuai"
                     etEmailAdminRegister.requestFocus()
                     return@setOnClickListener
-                }
-
-                if (password.isEmpty()) {
+                } else if (password.isEmpty()) {
                     etPasswordAdminRegister.error = "Password tidak bisa kosong"
                     etPasswordAdminRegister.requestFocus()
                     return@setOnClickListener
+                } else {
+                    registerFirebase(email, password, npwp, nama)
                 }
-                RegisterFirebase(email, password, npwp, nama)
             }
         }
     }
 
-    private fun RegisterFirebase(email: String, password: String, npwp: String, nama: String) {
+    private fun registerFirebase(email: String, password: String, npwp: String, nama: String) {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
-                    Toast.makeText(requireContext(), "Registrasi Berhasil", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Registrasi Berhasil", Toast.LENGTH_SHORT)
+                        .show()
                     findNavController().navigate(RegisterAdminFragmentDirections.actionRegisterAdminFragmentToLoginAdminFragment())
                 } else {
                     Toast.makeText(requireContext(), "Registrasi Gagal", Toast.LENGTH_SHORT).show()
