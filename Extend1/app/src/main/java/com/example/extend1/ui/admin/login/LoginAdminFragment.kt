@@ -34,26 +34,22 @@ class LoginAdminFragment : Fragment() {
             btnAdminLogin.setOnClickListener {
                 val email = etEmailAdminLogin.text.toString()
                 val password = etPasswordAdminLogin.text.toString()
-
                 if (email.isEmpty()) {
                     etEmailAdminLogin.error = "Email tidak bisa kosong"
                     etEmailAdminLogin.requestFocus()
-                    return@setOnClickListener
-                }
-
-
-
-                if (password.isEmpty()) {
+                } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    etEmailAdminLogin.error = "Email tidak sesuai"
+                } else if (password.isEmpty()) {
                     etPasswordAdminLogin.error = "Password tidak bisa kosong"
                     etPasswordAdminLogin.requestFocus()
-                    return@setOnClickListener
+                } else {
+                    loginFirebase(email, password)
                 }
-                LoginFirebase(email, password)
             }
         }
     }
 
-    private fun LoginFirebase(email: String, password: String) {
+    private fun loginFirebase(email: String, password: String) {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
