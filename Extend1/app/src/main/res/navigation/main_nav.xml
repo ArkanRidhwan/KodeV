@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/welcomeFragment">
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.example.extend1.ui.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_loginUserFragment"
+            app:destination="@id/loginUserFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_loginAdminFragment"
+            app:destination="@id/loginAdminFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginUserFragment"
+        android:name="com.example.extend1.ui.user.login.LoginUserFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login_user" >
+        <action
+            android:id="@+id/action_loginUserFragment_to_homeUserFragment"
+            app:destination="@id/homeUserFragment" />
+        <action
+            android:id="@+id/action_loginUserFragment_to_registerUserFragment"
+            app:destination="@id/registerUserFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerUserFragment"
+        android:name="com.example.extend1.ui.user.register.RegisterUserFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register_user" >
+        <action
+            android:id="@+id/action_registerUserFragment_to_homeUserFragment"
+            app:destination="@id/homeUserFragment" />
+        <action
+            android:id="@+id/action_registerUserFragment_to_loginUserFragment"
+            app:destination="@id/loginUserFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginAdminFragment"
+        android:name="com.example.extend1.ui.admin.login.LoginAdminFragment"
+        android:label="fragment_login_admin"
+        tools:layout="@layout/fragment_login_admin" >
+        <action
+            android:id="@+id/action_loginAdminFragment_to_homeAdminFragment"
+            app:destination="@id/homeAdminFragment" />
+        <action
+            android:id="@+id/action_loginAdminFragment_to_registerAdminFragment"
+            app:destination="@id/registerAdminFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerAdminFragment"
+        android:name="com.example.extend1.ui.admin.register.RegisterAdminFragment"
+        android:label="fragment_register_admin"
+        tools:layout="@layout/fragment_register_admin" >
+        <action
+            android:id="@+id/action_registerAdminFragment_to_homeAdminFragment"
+            app:destination="@id/homeAdminFragment" />
+        <action
+            android:id="@+id/action_registerAdminFragment_to_loginAdminFragment"
+            app:destination="@id/loginAdminFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeUserFragment"
+        android:name="com.example.extend1.ui.user.main.HomeUserFragment"
+        android:label="fragment_home_user"
+        tools:layout="@layout/fragment_home_user" >
+        <action
+            android:id="@+id/action_homeUserFragment_to_courseUserFragment"
+            app:destination="@id/courseUserFragment" />
+        <action
+            android:id="@+id/action_homeUserFragment_to_profileUserFragment"
+            app:destination="@id/profileUserFragment" />
+        <action
+            android:id="@+id/action_homeUserFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeAdminFragment"
+        android:name="com.example.extend1.ui.admin.main.HomeAdminFragment"
+        android:label="fragment_home_admin"
+        tools:layout="@layout/fragment_home_admin" >
+        <action
+            android:id="@+id/action_homeAdminFragment_to_profileAdminFragment"
+            app:destination="@id/profileAdminFragment" />
+        <action
+            android:id="@+id/action_homeAdminFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileAdminFragment"
+        android:name="com.example.extend1.ui.admin.profile.ProfileAdminFragment"
+        android:label="fragment_profile_admin"
+        tools:layout="@layout/fragment_profile_admin" />
+    <fragment
+        android:id="@+id/courseUserFragment"
+        android:name="com.example.extend1.ui.user.course.CourseUserFragment"
+        android:label="fragment_course_user"
+        tools:layout="@layout/fragment_course_user" />
+    <fragment
+        android:id="@+id/profileUserFragment"
+        android:name="com.example.extend1.ui.user.profile.ProfileUserFragment"
+        android:label="fragment_profile_user"
+        tools:layout="@layout/fragment_profile_user" />
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.extend1.ui.ChatFragment"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat" />
+</navigation>

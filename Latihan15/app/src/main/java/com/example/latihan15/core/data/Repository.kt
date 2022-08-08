@@ -2,8 +2,10 @@ package com.example.latihan15.core.data
 
 import com.example.latihan15.core.data.local.LocalDataSource
 import com.example.latihan15.core.data.remote.ApiResponse
+import com.example.latihan15.core.data.remote.NetworkSource
 import com.example.latihan15.core.data.remote.RemoteDataSource
 import com.example.latihan15.core.data.remote.response.dicoding.getStory.ResponseStory
+import com.example.latihan15.core.data.remote.response.dicoding.postStory.ResponsePostStory
 import com.example.latihan15.core.data.remote.response.makeup.ResponseItem
 import com.example.latihan15.core.domain.model.Makeup
 import com.example.latihan15.core.domain.model.Story
@@ -11,13 +13,15 @@ import com.example.latihan15.core.domain.repository.IRepository
 import com.example.latihan15.utils.DataMapper
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 
 class Repository(
     private val remoteDataSource: RemoteDataSource,
     private val localDataSource: LocalDataSource,
 ) : IRepository {
 
-    companion object {
+    /*companion object {
         @Volatile
         private var instance: Repository? = null
 
@@ -30,7 +34,7 @@ class Repository(
                     instance = this
                 }
             }
-    }
+    }*/
 
     override fun getMakeup(): Flow<Resource<List<Makeup>>> {
         return object : NetworkBoundResource<List<Makeup>, List<ResponseItem>>() {
@@ -64,7 +68,7 @@ class Repository(
             }
 
             override fun shouldFetch(data: List<Story>?): Boolean {
-                return data == null || data.isEmpty()
+                return true
             }
 
             override suspend fun createCall(): Flow<ApiResponse<ResponseStory>> {
@@ -77,4 +81,16 @@ class Repository(
             }
         }.asFlow()
     }
+
+    override fun postStory(
+        token: String,
+        file: MultipartBody.Part,
+        description: RequestBody
+    ): Flow<Resource<ResponsePostStory>> =
+        object : NetworkSource<ResponsePostStory>() {
+            override suspend fun createCall(): Flow<ApiResponse<ResponsePostStory>> {
+                return remoteDataSource.postStory(token, file, description)
+            }
+
+        }.asFlow()
 }

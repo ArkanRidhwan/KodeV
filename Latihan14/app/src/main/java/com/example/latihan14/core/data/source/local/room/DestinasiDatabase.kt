@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 
 @Database(entities = [DestinasiEntity::class], version = 1, exportSchema = false)
 abstract class DestinasiDatabase : RoomDatabase() {
-    abstract fun destinasiDao(): DestinasiDao
+
 
     companion object {
 

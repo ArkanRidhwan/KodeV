@@ -9,6 +9,7 @@ import com.example.latihan15.core.domain.usecase.IStoryUseCase
 import com.example.latihan15.ui.dicoding.StoryViewModel
 import com.example.latihan15.ui.makeup.MakeUpViewModel
 
+/*
 class ViewModelFactory(private val iMakeupUseCase: IMakeupUseCase, private val iStoryUseCase: IStoryUseCase) :
     ViewModelProvider.NewInstanceFactory() {
 
@@ -36,4 +37,4 @@ class ViewModelFactory(private val iMakeupUseCase: IMakeupUseCase, private val i
             }
         }
     }
-}
+}*/

@@ -6,14 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.example.latihan15.core.data.Resource
 import com.example.latihan15.databinding.FragmentMakeUpBinding
-import com.example.latihan15.ui.ViewModelFactory
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MakeUpFragment : Fragment() {
 
     private lateinit var binding: FragmentMakeUpBinding
+    private val viewModel: MakeUpViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,8 +24,8 @@ class MakeUpFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val factory = ViewModelFactory.getInstance(requireActivity())
-        val viewModel = ViewModelProvider(this@MakeUpFragment, factory)[MakeUpViewModel::class.java]
+        /*val factory = ViewModelFactory.getInstance(requireActivity())
+        val viewModel = ViewModelProvider(this@MakeUpFragment, factory)[MakeUpViewModel::class.java]*/
 
         val makeUpAdapter = MakeUpAdapter()
         viewModel.getMakeup().observe(viewLifecycleOwner) {

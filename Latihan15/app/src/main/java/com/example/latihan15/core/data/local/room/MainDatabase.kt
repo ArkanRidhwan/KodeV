@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase
 abstract class MainDatabase : RoomDatabase() {
     abstract fun mainDao(): MainDao
 
-    companion object {
+    /*companion object {
 
         @Volatile
         private var INSTANCE: MainDatabase? = null
@@ -25,5 +25,5 @@ abstract class MainDatabase : RoomDatabase() {
                         INSTANCE = this
                     }
             }
-    }
+    }*/
 }

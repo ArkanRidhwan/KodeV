@@ -5,6 +5,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+/*
 object ApiConfig {
     fun getApiServiceMakeUp(): ApiServiceMakeUp {
         val loggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
@@ -31,4 +32,4 @@ object ApiConfig {
             .build()
         return retrofit.create(ApiServiceStory::class.java)
     }
-}
+}*/

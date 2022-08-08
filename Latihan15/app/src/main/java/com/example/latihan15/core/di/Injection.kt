@@ -13,9 +13,9 @@ import com.example.latihan15.core.domain.usecase.StoryInteractor
 
 object Injection {
 
-    fun provideRepository(context: Context): IRepository {
+    /*fun provideRepository(context: Context): IRepository {
         val database = MainDatabase.getInstance(context)
-        val remoteDataSource = RemoteDataSource()
+        val remoteDataSource = RemoteDataSource(get())
         val localDataSource = LocalDataSource.getInstance(database.mainDao())
         return Repository.getInstance(remoteDataSource, localDataSource)
     }
@@ -28,5 +28,5 @@ object Injection {
     fun provideStoryUseCase(context: Context): IStoryUseCase {
         val repository = provideRepository(context)
         return StoryInteractor(repository)
-    }
+    }*/
 }
