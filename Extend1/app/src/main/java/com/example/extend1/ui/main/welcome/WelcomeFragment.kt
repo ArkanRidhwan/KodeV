@@ -1,4 +1,4 @@
-package com.example.extend1.ui
+package com.example.extend1.ui.main.welcome
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -26,11 +26,11 @@ class WelcomeFragment : Fragment() {
 
         binding.apply {
             btnAdmin.setOnClickListener {
-                val action = WelcomeFragmentDirections.actionWelcomeFragmentToLoginAdminFragment(getString(R.string.admin))
+                val action = WelcomeFragmentDirections.actionWelcomeFragmentToLoginFragment(getString(R.string.admin))
                 findNavController().navigate(action)
             }
             btnUser.setOnClickListener {
-                val action = WelcomeFragmentDirections.actionWelcomeFragmentToLoginAdminFragment(getString(R.string.user))
+                val action = WelcomeFragmentDirections.actionWelcomeFragmentToLoginFragment(getString(R.string.user))
                 findNavController().navigate(action)
             }
         }

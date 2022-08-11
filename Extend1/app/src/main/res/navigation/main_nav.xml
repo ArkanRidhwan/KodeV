@@ -7,39 +7,39 @@
 
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="com.example.extend1.ui.WelcomeFragment"
+        android:name="com.example.extend1.ui.main.welcome.WelcomeFragment"
         android:label="fragment_welcome"
-        tools:layout="@layout/fragment_welcome" >
+        tools:layout="@layout/fragment_welcome">
         <action
-            android:id="@+id/action_welcomeFragment_to_loginAdminFragment"
-            app:destination="@id/loginAdminFragment" />
+            android:id="@+id/action_welcomeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
-        android:id="@+id/loginAdminFragment"
-        android:name="com.example.extend1.ui.admin.login.LoginAdminFragment"
-        android:label="fragment_login_admin"
-        tools:layout="@layout/fragment_login_admin" >
+        android:id="@+id/loginFragment"
+        android:name="com.example.extend1.ui.main.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
         <action
-            android:id="@+id/action_loginAdminFragment_to_homeAdminFragment"
+            android:id="@+id/action_loginFragment_to_homeAdminFragment"
             app:destination="@id/homeAdminFragment" />
         <action
-            android:id="@+id/action_loginAdminFragment_to_registerAdminFragment"
-            app:destination="@id/registerAdminFragment" />
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
         <action
-            android:id="@+id/action_loginAdminFragment_to_homeUserFragment"
+            android:id="@+id/action_loginFragment_to_homeUserFragment"
             app:destination="@id/homeUserFragment" />
         <argument
             android:name="role"
             app:argType="string" />
     </fragment>
     <fragment
-        android:id="@+id/registerAdminFragment"
-        android:name="com.example.extend1.ui.admin.register.RegisterAdminFragment"
-        android:label="fragment_register_admin"
-        tools:layout="@layout/fragment_register_admin" >
+        android:id="@+id/registerFragment"
+        android:name="com.example.extend1.ui.main.register.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register">
         <action
-            android:id="@+id/action_registerAdminFragment_to_loginAdminFragment"
-            app:destination="@id/loginAdminFragment" />
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
         <argument
             android:name="role"
             app:argType="string" />
@@ -48,7 +48,7 @@
         android:id="@+id/homeUserFragment"
         android:name="com.example.extend1.ui.user.main.HomeUserFragment"
         android:label="fragment_home_user"
-        tools:layout="@layout/fragment_home_user" >
+        tools:layout="@layout/fragment_home_user">
         <action
             android:id="@+id/action_homeUserFragment_to_courseUserFragment"
             app:destination="@id/courseUserFragment" />
@@ -63,7 +63,7 @@
         android:id="@+id/homeAdminFragment"
         android:name="com.example.extend1.ui.admin.main.HomeAdminFragment"
         android:label="fragment_home_admin"
-        tools:layout="@layout/fragment_home_admin" >
+        tools:layout="@layout/fragment_home_admin">
         <action
             android:id="@+id/action_homeAdminFragment_to_profileAdminFragment"
             app:destination="@id/profileAdminFragment" />
@@ -88,14 +88,14 @@
         tools:layout="@layout/fragment_profile_user" />
     <fragment
         android:id="@+id/chatFragment"
-        android:name="com.example.extend1.ui.ChatFragment"
+        android:name="com.example.extend1.ui.main.chat.ChatFragment"
         android:label="fragment_chat"
         tools:layout="@layout/fragment_chat" />
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.extend1.ui.splash.SplashFragment"
+        android:name="com.example.extend1.ui.main.splash.SplashFragment"
         android:label="fragment_splash"
-        tools:layout="@layout/fragment_splash" >
+        tools:layout="@layout/fragment_splash">
         <action
             android:id="@+id/action_splashFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment" />

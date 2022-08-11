@@ -7,7 +7,7 @@ data class User(
     val name: String = ""
 ) {
     companion object {
-        fun saveUser(id: String, email: String, password: String, name: String) : User {
+        fun saveUser(id: String, email: String, password: String, name: String): User {
             return User(id, email, password, name)
         }
     }

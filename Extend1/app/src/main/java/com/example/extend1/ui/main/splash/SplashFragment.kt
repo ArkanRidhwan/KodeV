@@ -1,4 +1,4 @@
-package com.example.extend1.ui.splash
+package com.example.extend1.ui.main.splash
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,11 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.extend1.R
 import com.example.extend1.databinding.FragmentSplashBinding
+import com.example.extend1.utils.Constant.USER_ID
 import com.example.extend1.utils.Constant.USER_ROLE
 import com.example.extend1.utils.getInstance
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 
 class SplashFragment : Fragment() {
 
@@ -31,9 +30,9 @@ class SplashFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val role = getInstance(requireContext()).getString(USER_ROLE)
-        val userId = getInstance(requireContext()).getString(USER_ROLE)
+        val userId = getInstance(requireContext()).getString(USER_ID)
 
-        if (userId == "") {
+        if (userId.isNotEmpty()) {
             if (role == getString(R.string.admin))
                 findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToHomeAdminFragment())
             else

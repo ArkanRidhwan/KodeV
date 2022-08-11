@@ -1,4 +1,4 @@
-package com.example.extend1.ui
+package com.example.extend1.ui.main.addDocument
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -1,13 +1,11 @@
-package com.example.extend1.ui
+package com.example.extend1.ui.main.chat
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.extend1.R
 import com.example.extend1.databinding.FragmentChatBinding
-import com.example.extend1.databinding.FragmentWelcomeBinding
 
 class ChatFragment : Fragment() {
 
