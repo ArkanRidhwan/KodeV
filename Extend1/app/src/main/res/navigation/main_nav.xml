@@ -43,6 +43,10 @@
         <argument
             android:name="role"
             app:argType="string" />
+        <argument
+            android:name="email"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/homeUserFragment"

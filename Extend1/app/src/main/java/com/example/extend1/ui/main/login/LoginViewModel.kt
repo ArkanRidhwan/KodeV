@@ -55,11 +55,13 @@ class LoginViewModel() : ViewModel() {
                         }
                     }
                     dataUser.value = user
+                } else {
+                    dataUser.value = null
                 }
             }
 
             override fun onCancelled(error: DatabaseError) {
-                user = null
+                dataUser.value = null
             }
         })
         return dataUser
@@ -101,11 +103,13 @@ class LoginViewModel() : ViewModel() {
                         }
                     }
                     dataAdmin.value = admin
+                } else {
+                    dataAdmin.value = null
                 }
             }
 
             override fun onCancelled(error: DatabaseError) {
-                admin = null
+                dataAdmin.value = null
             }
         })
         return dataAdmin

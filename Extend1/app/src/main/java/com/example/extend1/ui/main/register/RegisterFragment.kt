@@ -47,6 +47,9 @@ class RegisterFragment : Fragment() {
         else
             binding.etNpwpAdminRegister.gone()
 
+        if (args.email?.isNotEmpty() == true) {
+            binding.etEmailRegister.setText(args.email.toString())
+        }
 
         auth = FirebaseAuth.getInstance()
         binding.apply {
@@ -78,7 +81,12 @@ class RegisterFragment : Fragment() {
                         // Save user to realtime database
                         registerViewModel.saveUser(user).observe(viewLifecycleOwner) {
                             if (it == true) {
-                                registerFirebase(email, password)
+                                requireContext().showToast("Registrasi Berhasil")
+                                val action =
+                                    RegisterFragmentDirections.actionRegisterFragmentToLoginFragment(
+                                        args.role
+                                    )
+                                findNavController().navigate(action)
                             } else {
                                 btnRegister.visible()
                                 progressBar.gone()
@@ -94,7 +102,12 @@ class RegisterFragment : Fragment() {
                         )
                         registerViewModel.saveAdmin(admin).observe(viewLifecycleOwner) {
                             if (it == true) {
-                                registerFirebase(email, password)
+                                requireContext().showToast("Registrasi Berhasil")
+                                val action =
+                                    RegisterFragmentDirections.actionRegisterFragmentToLoginFragment(
+                                        args.role
+                                    )
+                                findNavController().navigate(action)
                             } else {
                                 btnRegister.visible()
                                 progressBar.gone()
@@ -111,12 +124,7 @@ class RegisterFragment : Fragment() {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
-                    requireContext().showToast("Registrasi Berhasil")
-                    val action =
-                        RegisterFragmentDirections.actionRegisterFragmentToLoginFragment(
-                            args.role
-                        )
-                    findNavController().navigate(action)
+
                 }
             }
             .addOnFailureListener {

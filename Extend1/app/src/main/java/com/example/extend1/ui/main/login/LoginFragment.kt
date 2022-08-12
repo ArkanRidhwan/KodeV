@@ -1,7 +1,6 @@
 package com.example.extend1.ui.main.login
 
 import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
@@ -26,7 +25,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 
 class LoginFragment : Fragment() {
@@ -74,7 +72,7 @@ class LoginFragment : Fragment() {
             tvRegisterNow.setOnClickListener {
                 val action =
                     LoginFragmentDirections.actionLoginFragmentToRegisterFragment(
-                        args.role
+                        args.role, null
                     )
                 findNavController().navigate(action)
             }
@@ -97,7 +95,7 @@ class LoginFragment : Fragment() {
                         loginViewModel.loginUserByEmailPassword(email, password)
                             .observe(viewLifecycleOwner) {
                                 if (it != null) {
-                                    loginFirebase(email, password)
+                                    loginFirebase()
                                     getInstance(requireContext()).putString(USER_ID, it.id)
                                     getInstance(requireContext()).putString(
                                         USER_ROLE,
@@ -113,7 +111,7 @@ class LoginFragment : Fragment() {
                         loginViewModel.loginAdminByEmailPassword(email, password)
                             .observe(viewLifecycleOwner) {
                                 if (it != null) {
-                                    loginFirebase(email, password)
+                                    loginFirebase()
                                     getInstance(requireContext()).putString(USER_ID, it.id)
                                     getInstance(requireContext()).putString(USER_ROLE, getString(R.string.admin))
                                 } else {
@@ -167,10 +165,12 @@ class LoginFragment : Fragment() {
                 if (it != null) {
                     getInstance(requireContext()).putString(USER_ID, it.id)
                     getInstance(requireContext()).putString(USER_ROLE, getString(R.string.user))
-                    findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeAdminFragment())
+                    findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeUserFragment())
                     requireContext().showToast("Login Berhasil, Welcome ${auth.currentUser?.email}")
                 } else {
-                    requireContext().showToast("User Belum Terdaftar")
+                    val action = LoginFragmentDirections.actionLoginFragmentToRegisterFragment(args.role, email)
+                    findNavController().navigate(action)
+                    requireContext().showToast("User Belum Terdaftar, Harap Lengkapi Data Diri")
                 }
                 binding.btnLogin.visible()
                 binding.progressCircular.gone()
@@ -180,9 +180,11 @@ class LoginFragment : Fragment() {
                 if (it != null) {
                     getInstance(requireContext()).putString(USER_ID, it.id)
                     getInstance(requireContext()).putString(USER_ROLE, getString(R.string.user))
-                    findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeUserFragment())
+                    findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeAdminFragment())
                 } else {
-                    requireContext().showToast("Admin Belum Terdaftar")
+                    val action = LoginFragmentDirections.actionLoginFragmentToRegisterFragment(args.role, email)
+                    findNavController().navigate(action)
+                    requireContext().showToast("Admin Belum Terdaftar, Harap Lengkapi Data Diri")
                 }
                 binding.btnLogin.visible()
                 binding.progressCircular.gone()
@@ -191,22 +193,12 @@ class LoginFragment : Fragment() {
     }
 
     // Login with authentication
-    private fun loginFirebase(email: String, password: String) {
-        auth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener {
-                if (it.isSuccessful) {
-                    requireContext().showToast("Login Berhasil, Welcome ${auth.currentUser?.email}")
-                    if (args.role == getString(R.string.admin))
-                        findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeAdminFragment())
-                    else
-                        findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeUserFragment())
-                }
-            }
-            .addOnFailureListener {
-                binding.btnLogin.visible()
-                binding.progressCircular.gone()
-                requireContext().showToast(it.message.toString())
-            }
+    private fun loginFirebase() {
+        requireContext().showToast("Login Berhasil")
+        if (args.role == getString(R.string.admin))
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeAdminFragment())
+        else
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeUserFragment())
     }
 
 }
