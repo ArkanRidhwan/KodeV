@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/teal_700"
-    tools:context=".ui.admin.main.HomeAdminFragment">
+    tools:context=".ui.admin.home.HomeAdminFragment">
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/iv_addLaporan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -71,7 +71,30 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/iv_addPelanggaran"
         app:layout_constraintStart_toStartOf="@+id/iv_addPelanggaran"
-        app:layout_constraintTop_toBottomOf="@+id/iv_addPelanggaran" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_addPelanggaran" />-->
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="108dp"
+        android:text="List Siswa Magang"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:paddingStart="5dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        tools:listitem="@layout/layout_list_siswa_magang" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_admin"

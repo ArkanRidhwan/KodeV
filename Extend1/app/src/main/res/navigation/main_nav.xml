@@ -61,7 +61,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeAdminFragment"
-        android:name="com.example.extend1.ui.admin.main.HomeAdminFragment"
+        android:name="com.example.extend1.ui.admin.home.HomeAdminFragment"
         android:label="fragment_home_admin"
         tools:layout="@layout/fragment_home_admin">
         <action
@@ -70,6 +70,12 @@
         <action
             android:id="@+id/action_homeAdminFragment_to_chatFragment"
             app:destination="@id/chatFragment" />
+        <action
+            android:id="@+id/action_homeAdminFragment_to_addDataSiswaFragment"
+            app:destination="@id/addDataSiswaFragment" />
+        <action
+            android:id="@+id/action_homeAdminFragment_to_tambahSiswaFragment"
+            app:destination="@id/tambahSiswaFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileAdminFragment"
@@ -106,4 +112,31 @@
             android:id="@+id/action_splashFragment_to_homeUserFragment"
             app:destination="@id/homeUserFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/addDataSiswaFragment"
+        android:name="com.example.extend1.ui.admin.home.AddDataSiswaFragment"
+        android:label="fragment_add_data_siswa"
+        tools:layout="@layout/fragment_add_data_siswa" >
+        <action
+            android:id="@+id/action_addDataSiswaFragment_to_laporanEvaluasiFragment"
+            app:destination="@id/laporanEvaluasiFragment" />
+        <action
+            android:id="@+id/action_addDataSiswaFragment_to_logbookFragment"
+            app:destination="@id/logbookFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/laporanEvaluasiFragment"
+        android:name="com.example.extend1.ui.admin.home.LaporanEvaluasiFragment"
+        android:label="fragment_laporan_evaluasi"
+        tools:layout="@layout/fragment_laporan_evaluasi" />
+    <fragment
+        android:id="@+id/logbookFragment"
+        android:name="com.example.extend1.ui.admin.home.LogbookFragment"
+        android:label="fragment_logbook"
+        tools:layout="@layout/fragment_logbook" />
+    <fragment
+        android:id="@+id/tambahSiswaFragment"
+        android:name="com.example.extend1.ui.admin.tambahSiswa.TambahSiswaFragment"
+        android:label="fragment_tambah_siswa"
+        tools:layout="@layout/fragment_tambah_siswa" />
 </navigation>
