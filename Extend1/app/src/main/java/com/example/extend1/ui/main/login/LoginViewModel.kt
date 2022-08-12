@@ -42,6 +42,29 @@ class LoginViewModel() : ViewModel() {
         return dataUser
     }
 
+    fun loginUserByEmail(email: String): LiveData<User?> {
+        val dataUser = MutableLiveData<User?>()
+        var user: User? = null
+        collUser.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    for (i in snapshot.children) {
+                        val valueUser = i.getValue(User::class.java)
+                        if (valueUser?.email == email) {
+                            user = valueUser
+                        }
+                    }
+                    dataUser.value = user
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                user = null
+            }
+        })
+        return dataUser
+    }
+
     fun loginAdminByEmailPassword(email: String, password: String): LiveData<Admin?> {
         val dataAdmin = MutableLiveData<Admin?>()
         var admin: Admin? = null
@@ -51,6 +74,29 @@ class LoginViewModel() : ViewModel() {
                     for (i in snapshot.children) {
                         val valueAdmin = i.getValue(Admin::class.java)
                         if (valueAdmin?.email == email && valueAdmin.password == password){
+                            admin = valueAdmin
+                        }
+                    }
+                    dataAdmin.value = admin
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                admin = null
+            }
+        })
+        return dataAdmin
+    }
+
+    fun loginAdminByEmail(email: String): LiveData<Admin?> {
+        val dataAdmin = MutableLiveData<Admin?>()
+        var admin: Admin? = null
+        collAdmin.addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()){
+                    for (i in snapshot.children) {
+                        val valueAdmin = i.getValue(Admin::class.java)
+                        if (valueAdmin?.email == email){
                             admin = valueAdmin
                         }
                     }

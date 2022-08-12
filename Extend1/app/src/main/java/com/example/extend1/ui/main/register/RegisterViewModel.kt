@@ -47,7 +47,7 @@ class RegisterViewModel() : ViewModel() {
             password = data.password
         )
         collAdmin.child(adminId).setValue(admin)
-            .addOnCanceledListener {
+            .addOnCompleteListener {
                 status.value = true
             }
             .addOnFailureListener {

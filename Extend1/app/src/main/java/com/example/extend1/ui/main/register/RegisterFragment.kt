@@ -30,7 +30,7 @@ class RegisterFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentRegisterBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
@@ -67,6 +67,8 @@ class RegisterFragment : Fragment() {
                 } else if (password.isEmpty()) {
                     etPasswordRegister.error("Password tidak bisa kosong")
                 } else {
+                    btnRegister.gone()
+                    progressBar.visible()
                     if (args.role == getString(R.string.user)) {
                         val user = User(
                             email = email,
@@ -76,10 +78,10 @@ class RegisterFragment : Fragment() {
                         // Save user to realtime database
                         registerViewModel.saveUser(user).observe(viewLifecycleOwner) {
                             if (it == true) {
-                                btnRegister.gone()
-                                progressBar.visible()
                                 registerFirebase(email, password)
                             } else {
+                                btnRegister.visible()
+                                progressBar.gone()
                                 requireContext().showToast("Registrasi User Gagal")
                             }
                         }
@@ -92,10 +94,10 @@ class RegisterFragment : Fragment() {
                         )
                         registerViewModel.saveAdmin(admin).observe(viewLifecycleOwner) {
                             if (it == true) {
-                                btnRegister.gone()
-                                progressBar.visible()
                                 registerFirebase(email, password)
                             } else {
+                                btnRegister.visible()
+                                progressBar.gone()
                                 requireContext().showToast("Registrasi Admin Gagal")
                             }
                         }
@@ -109,7 +111,6 @@ class RegisterFragment : Fragment() {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
-                    binding.progressBar.gone()
                     requireContext().showToast("Registrasi Berhasil")
                     val action =
                         RegisterFragmentDirections.actionRegisterFragmentToLoginFragment(
@@ -119,6 +120,8 @@ class RegisterFragment : Fragment() {
                 }
             }
             .addOnFailureListener {
+                binding.btnRegister.visible()
+                binding.progressBar.gone()
                 requireContext().showToast(it.message.toString())
             }
     }
