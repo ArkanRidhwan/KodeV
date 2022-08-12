@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "205686341349",
+    "firebase_url": "https://kodev-cf554-default-rtdb.firebaseio.com",
     "project_id": "kodev-cf554",
     "storage_bucket": "kodev-cf554.appspot.com"
   },
@@ -19,6 +20,14 @@
           "android_info": {
             "package_name": "com.example.extend1",
             "certificate_hash": "ffd6dd3851b40b65eb7ae58c4033115205aa396f"
+          }
+        },
+        {
+          "client_id": "205686341349-3q9j87o4pa714p783d4kvuboqvj8svln.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.extend1",
+            "certificate_hash": "40d65c0d294dcf9ef98add725d392276edf7d44a"
           }
         },
         {
