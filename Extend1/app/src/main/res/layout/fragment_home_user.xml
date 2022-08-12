@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/teal_700"
-    tools:context=".ui.user.main.HomeUserFragment">
+    tools:context=".ui.user.home.HomeUserFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="wrap_content"

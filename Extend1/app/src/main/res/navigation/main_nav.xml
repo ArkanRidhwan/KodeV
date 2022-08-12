@@ -46,7 +46,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeUserFragment"
-        android:name="com.example.extend1.ui.user.main.HomeUserFragment"
+        android:name="com.example.extend1.ui.user.home.HomeUserFragment"
         android:label="fragment_home_user"
         tools:layout="@layout/fragment_home_user">
         <action
@@ -58,6 +58,18 @@
         <action
             android:id="@+id/action_homeUserFragment_to_chatFragment"
             app:destination="@id/chatFragment" />
+        <action
+            android:id="@+id/action_homeUserFragment_to_detailCompanyFragment"
+            app:destination="@id/detailCompanyFragment" />
+        <action
+            android:id="@+id/action_homeUserFragment_to_detailCompanyFragment2"
+            app:destination="@id/detailCompanyFragment" />
+        <action
+            android:id="@+id/action_homeUserFragment_to_detailCompanyFragment3"
+            app:destination="@id/detailCompanyFragment" />
+        <action
+            android:id="@+id/action_homeUserFragment_to_detailCompanyFragment4"
+            app:destination="@id/detailCompanyFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeAdminFragment"
@@ -139,4 +151,18 @@
         android:name="com.example.extend1.ui.admin.tambahSiswa.TambahSiswaFragment"
         android:label="fragment_tambah_siswa"
         tools:layout="@layout/fragment_tambah_siswa" />
+    <fragment
+        android:id="@+id/detailCompanyFragment"
+        android:name="com.example.extend1.ui.user.home.DetailCompanyFragment"
+        android:label="fragment_detail_company"
+        tools:layout="@layout/fragment_detail_company" >
+        <action
+            android:id="@+id/action_detailCompanyFragment_to_detailKegiatanSiswaFragment"
+            app:destination="@id/detailKegiatanSiswaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailKegiatanSiswaFragment"
+        android:name="com.example.extend1.ui.user.home.DetailKegiatanSiswaFragment"
+        android:label="fragment_detail_kegiatan_siswa"
+        tools:layout="@layout/fragment_detail_kegiatan_siswa" />
 </navigation>

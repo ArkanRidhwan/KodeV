@@ -9,8 +9,10 @@
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_add_data_siswa.xml" value="0.3625" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_add_logbook.xml" value="0.3484375" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_chat.xml" value="0.3625" />
+        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_detail_company.xml" value="0.25" />
+        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_detail_kegiatan_siswa.xml" value="0.2418478260869565" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_home_admin.xml" value="0.33" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_laporan_evaluasi.xml" value="0.33" />
+        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_laporan_evaluasi.xml" value="0.25" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_logbook.xml" value="0.25" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_login_admin.xml" value="0.3625" />
@@ -19,6 +21,7 @@
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_tambah_siswa.xml" value="0.25" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/layout_list_siswa_magang.xml" value="0.3614583333333333" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/layout_list_user.xml" value="0.3625" />
+        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/menu/bottom_nav_admin.xml" value="0.3625" />
         <entry key="..\:/Arkan/Github/KodeV/Extend1/app/src/main/res/drawable/bg_btn.xml" value="0.131" />
         <entry key="..\:/Arkan/Github/KodeV/Extend1/app/src/main/res/drawable/ic_add.xml" value="0.1215" />
         <entry key="..\:/Arkan/Github/KodeV/Extend1/app/src/main/res/drawable/ic_chat.xml" value="0.1215" />

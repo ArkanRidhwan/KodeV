@@ -1,4 +1,4 @@
-package com.example.extend1.ui.user.main
+package com.example.extend1.ui.user.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
