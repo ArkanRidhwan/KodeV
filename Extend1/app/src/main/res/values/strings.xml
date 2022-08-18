@@ -12,4 +12,10 @@
     <string name="Video">Video</string>
     <string name="Laporan">Laporan</string>
     <string name="Logbook">Logbook</string>
+
+    <string-array name="Perusahaan">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+    </string-array>
 </resources>

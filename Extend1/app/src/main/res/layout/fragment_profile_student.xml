@@ -65,14 +65,39 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:paddingStart="3dp"
-        android:text="Pekerjaan Siswa"
+        android:text="Perusahaan Siswa"
         android:textColor="#575454"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/textView11"
         app:layout_constraintTop_toBottomOf="@+id/et_namaProfileSiswa" />
 
     <EditText
-        android:id="@+id/et_pekerjaanSiswa"
+        android:id="@+id/et_perusahaanSiswa"
+        android:layout_width="355dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Tulis perusahaan"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:paddingStart="3dp"
+        android:text="Pekerjaan Siswa"
+        android:textColor="#575454"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/et_perusahaanSiswa" />
+
+    <EditText
+        android:id="@+id/et_pekerjaanSiswa2"
         android:layout_width="355dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -81,8 +106,8 @@
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
         android:id="@+id/textView15"
@@ -93,8 +118,8 @@
         android:text="Nomor Telepon Siswa"
         android:textColor="#575454"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/et_pekerjaanSiswa" />
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/et_pekerjaanSiswa2" />
 
     <EditText
         android:id="@+id/et_noTeleponSiswa"
@@ -113,11 +138,12 @@
         android:id="@+id/btn_submitProfileCompany"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="36dp"
         android:background="@drawable/bg_btn_profile"
-        android:textColor="@color/white"
         android:text="Submit"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/et_noTeleponSiswa"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/et_noTeleponSiswa"
         app:layout_constraintTop_toBottomOf="@+id/et_noTeleponSiswa" />
 

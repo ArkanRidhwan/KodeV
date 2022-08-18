@@ -5,6 +5,8 @@ import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -37,6 +39,10 @@ class RegisterFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val dropdownPerusahaan = resources.getStringArray(R.array.Perusahaan)
+        val dropdownAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, dropdownPerusahaan)
+        binding.autoCompleteTextView.setAdapter(dropdownAdapter)
+
         auth = FirebaseAuth.getInstance()
         when (args.role) {
             getString(R.string.company) -> {
@@ -49,6 +55,7 @@ class RegisterFragment : Fragment() {
             else -> {
                 binding.tvRegistrationStudetTittle.visible()
                 binding.etNpwpCompanyRegister.gone()
+                binding.textInputLayout.visible()
             }
         }
 
