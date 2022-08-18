@@ -15,6 +15,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.extend1.R
 import com.example.extend1.databinding.FragmentLoginBinding
 import com.example.extend1.utils.Constant.ID
+import com.example.extend1.utils.Constant.NAME
 import com.example.extend1.utils.Constant.ROLE
 import com.example.extend1.utils.getInstance
 import com.example.extend1.utils.gone
@@ -102,6 +103,7 @@ class LoginFragment : Fragment() {
                                     if (it != null) {
                                         loginFirebase()
                                         getInstance(requireContext()).putString(ID, it.id)
+                                        getInstance(requireContext()).putString(NAME, it.name)
                                         getInstance(requireContext()).putString(ROLE, getString(R.string.admin))
                                     } else {
                                         requireContext().showToast("Email atau Password Salah")
@@ -116,6 +118,7 @@ class LoginFragment : Fragment() {
                                     if (it != null) {
                                         loginFirebase()
                                         getInstance(requireContext()).putString(ID, it.id)
+                                        getInstance(requireContext()).putString(NAME, it.name)
                                         getInstance(requireContext()).putString(ROLE, getString(R.string.company))
                                     } else {
                                         requireContext().showToast("Email atau password salah")
@@ -130,6 +133,7 @@ class LoginFragment : Fragment() {
                                     if (it != null) {
                                         loginFirebase()
                                         getInstance(requireContext()).putString(ID, it.id)
+                                        getInstance(requireContext()).putString(NAME, it.name)
                                         getInstance(requireContext()).putString(ROLE, getString(R.string.student))
                                     } else {
                                         requireContext().showToast("Email atau password salah")
@@ -185,6 +189,7 @@ class LoginFragment : Fragment() {
                 loginViewModel.loginAdminByEmail(email).observe(viewLifecycleOwner) {
                     if (it != null) {
                         getInstance(requireContext()).putString(ID, it.id)
+                        getInstance(requireContext()).putString(NAME, it.name)
                         getInstance(requireContext()).putString(ROLE, getString(R.string.admin))
                         findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeAdminFragment())
                         requireContext().showToast("Login Berhasil, Welcome ${auth.currentUser?.email}")
@@ -204,6 +209,7 @@ class LoginFragment : Fragment() {
                 loginViewModel.loginCompanyByEmail(email).observe(viewLifecycleOwner) {
                     if (it != null) {
                         getInstance(requireContext()).putString(ID, it.id)
+                        getInstance(requireContext()).putString(NAME, it.name)
                         getInstance(requireContext()).putString(ROLE, getString(R.string.company))
                         findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeCompanyFragment())
                         requireContext().showToast("Login Berhasil, Welcome ${auth.currentUser?.email}")
@@ -223,6 +229,7 @@ class LoginFragment : Fragment() {
                 loginViewModel.loginAdminByEmail(email).observe(viewLifecycleOwner) {
                     if (it != null) {
                         getInstance(requireContext()).putString(ID, it.id)
+                        getInstance(requireContext()).putString(NAME, it.name)
                         getInstance(requireContext()).putString(ROLE, getString(R.string.student))
                         findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeStudentFragment())
                         requireContext().showToast("Login Berhasil, Welcome ${auth.currentUser?.email}")
@@ -244,10 +251,11 @@ class LoginFragment : Fragment() {
     // Login with authentication
     private fun loginFirebase() {
         requireContext().showToast("Login Berhasil")
-        if (args.role == getString(R.string.company))
-            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeCompanyFragment())
-        else
-            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeAdminFragment())
+        when (args.role) {
+            getString(R.string.company) -> findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeCompanyFragment())
+            getString(R.string.student) -> findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeStudentFragment())
+            else -> findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeAdminFragment())
+        }
     }
 
 }

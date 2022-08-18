@@ -43,7 +43,6 @@ class HomeCompanyFragment : Fragment() {
 
         binding.apply {
             fabAdmin.setOnClickListener {
-                findNavController().navigate(HomeCompanyFragmentDirections.actionHomeCompanyFragmentToChatFragment())
             }
         }
 

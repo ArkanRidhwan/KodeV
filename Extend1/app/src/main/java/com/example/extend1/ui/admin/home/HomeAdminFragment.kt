@@ -23,7 +23,6 @@ class HomeAdminFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.apply {
             fabUser.setOnClickListener {
-                findNavController().navigate(HomeAdminFragmentDirections.actionHomeAdminFragmentToChatFragment())
             }
         }
     }

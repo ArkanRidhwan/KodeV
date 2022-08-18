@@ -126,7 +126,14 @@
         android:id="@+id/chatFragment"
         android:name="com.example.extend1.ui.main.chat.ChatFragment"
         android:label="fragment_chat"
-        tools:layout="@layout/fragment_chat" />
+        tools:layout="@layout/fragment_chat" >
+        <argument
+            android:name="receiverId"
+            app:argType="string" />
+        <argument
+            android:name="receiverName"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.example.extend1.ui.main.splash.SplashFragment"
@@ -174,7 +181,7 @@
         tools:layout="@layout/fragment_tambah_siswa" />
     <fragment
         android:id="@+id/detailCompanyFragment"
-        android:name="com.example.extend1.ui.admin.home.DetailCompanyFragment"
+        android:name="com.example.extend1.ui.admin.home.detail.DetailCompanyFragment"
         android:label="fragment_detail_company"
         tools:layout="@layout/fragment_detail_company">
         <action
@@ -183,7 +190,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailKegiatanSiswaFragment"
-        android:name="com.example.extend1.ui.admin.home.DetailKegiatanSiswaFragment"
+        android:name="com.example.extend1.ui.admin.home.detail.DetailKegiatanSiswaFragment"
         android:label="fragment_detail_kegiatan_siswa"
         tools:layout="@layout/fragment_detail_kegiatan_siswa" />
     <fragment
@@ -195,11 +202,11 @@
             android:id="@+id/action_homeStudentFragment_to_profileStudentFragment"
             app:destination="@id/profileStudentFragment" />
         <action
-            android:id="@+id/action_homeStudentFragment_to_chatFragment"
-            app:destination="@id/chatFragment" />
-        <action
             android:id="@+id/action_homeStudentFragment_to_courseStudentFragment"
             app:destination="@id/courseStudentFragment" />
+        <action
+            android:id="@+id/action_homeStudentFragment_to_listAdminFragment"
+            app:destination="@id/listAdminFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileStudentFragment"
@@ -215,4 +222,13 @@
         android:name="com.example.extend1.ui.student.course.CourseStudentFragment"
         android:label="fragment_course_student"
         tools:layout="@layout/fragment_course_student" />
+    <fragment
+        android:id="@+id/listAdminFragment"
+        android:name="com.example.extend1.ui.student.admin.ListAdminFragment"
+        android:label="ListAdminFragment"
+        tools:layout="@layout/fragment_list_chat_admin">
+        <action
+            android:id="@+id/action_listAdminFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
 </navigation>
