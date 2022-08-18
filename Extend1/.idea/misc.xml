@@ -8,6 +8,7 @@
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/drawable/ic_add_image.xml" value="0.165" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/drawable/ic_add_laporan.xml" value="0.165" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/drawable/ic_add_siswa.xml" value="0.1" />
+        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/drawable/ic_download_laporan.xml" value="0.156" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/dropdown_item.xml" value="0.3625" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_add_data_siswa.xml" value="0.3625" />
@@ -17,7 +18,9 @@
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_course_admin.xml" value="0.25" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_course_student.xml" value="0.3625" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_detail_company.xml" value="0.1762917933130699" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_detail_kegiatan_siswa.xml" value="0.33" />
+        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_detail_kegiatan_siswa.xml" value="0.25" />
+        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_detail_kegiatan_siswa_laporan.xml" value="0.25" />
+        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_detail_kegiatan_siswa_logbook.xml" value="0.33" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_home_admin.xml" value="0.25" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_home_company.xml" value="0.25" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_home_student.xml" value="0.23097826086956522" />
@@ -35,6 +38,8 @@
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_welcome.xml" value="0.2545289855072464" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/layout_list_admin.xml" value="0.3625" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/layout_list_artikl_course.xml" value="0.3625" />
+        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/layout_list_laporan.xml" value="0.22" />
+        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/layout_list_logbook.xml" value="0.25" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/layout_list_siswa_magang.xml" value="0.3614583333333333" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/layout_list_student.xml" value="0.25" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/layout_list_user.xml" value="0.3625" />
