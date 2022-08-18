@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.extend1.databinding.FragmentProfileAdminBinding
 import com.example.extend1.ui.main.MainActivity
 import com.example.extend1.utils.getInstance
@@ -13,9 +14,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-class ProfileAdminFragment : Fragment() {
-    private lateinit var auth: FirebaseAuth
 
+class ProfileAdminFragment : Fragment() {
+
+    private lateinit var auth: FirebaseAuth
     private lateinit var binding: FragmentProfileAdminBinding
 
     override fun onCreateView(
@@ -30,7 +32,7 @@ class ProfileAdminFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         auth = Firebase.auth
 
-        binding.textView8.setOnClickListener {
+        binding.ivLogout.setOnClickListener {
             logout()
         }
     }
@@ -39,6 +41,7 @@ class ProfileAdminFragment : Fragment() {
     private fun logout() {
         auth.signOut()
         getInstance(requireContext()).clearPreferences()
-        startActivity(Intent(requireActivity(), MainActivity::class.java))
+        findNavController().navigate(ProfileAdminFragmentDirections.actionProfileAdminFragmentToWelcomeFragment())
+        //startActivity(Intent(requireActivity(), MainActivity::class.java))
     }
 }

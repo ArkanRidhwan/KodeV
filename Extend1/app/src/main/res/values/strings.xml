@@ -2,7 +2,14 @@
     <string name="app_name">Extend!</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="welcome">Welcome</string>
+    <string name="company">Company</string>
     <string name="admin">Admin</string>
-    <string name="user">User</string>
+    <string name="student">Student</string>
     <string name="canceled">Dibatalkan</string>
+
+    //View Pager
+    <string name="Artikel">Artikel</string>
+    <string name="Video">Video</string>
+    <string name="Laporan">Laporan</string>
+    <string name="Logbook">Logbook</string>
 </resources>

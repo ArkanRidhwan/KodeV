@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.admin.home.AddDataSiswaFragment"
+    tools:context=".ui.company.home.AddDataSiswaFragment"
     android:background="@color/teal_700">
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/iv_logbook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="55dp"
@@ -26,13 +26,13 @@
         android:text="Logbook"
         android:textColor="@color/black"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/iv_logbook"
         app:layout_constraintHorizontal_bias="0.486"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintStart_toStartOf="@+id/iv_logbook"
+        app:layout_constraintTop_toBottomOf="@+id/iv_logbook" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/iv_laporanAkhir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="205dp"
@@ -49,7 +49,7 @@
         android:text="Laporan Akhir"
         android:textColor="@color/black"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintEnd_toEndOf="@+id/iv_laporanAkhir"
+        app:layout_constraintStart_toStartOf="@+id/iv_laporanAkhir"
+        app:layout_constraintTop_toBottomOf="@+id/iv_laporanAkhir" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,17 +20,20 @@
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
         <action
-            android:id="@+id/action_loginFragment_to_homeAdminFragment"
-            app:destination="@id/homeAdminFragment" />
+            android:id="@+id/action_loginFragment_to_homeCompanyFragment"
+            app:destination="@id/homeCompanyFragment" />
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
         <action
-            android:id="@+id/action_loginFragment_to_homeUserFragment"
-            app:destination="@id/homeUserFragment" />
+            android:id="@+id/action_loginFragment_to_homeAdminFragment"
+            app:destination="@id/homeAdminFragment" />
         <argument
             android:name="role"
             app:argType="string" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeStudentFragment"
+            app:destination="@id/homeStudentFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -47,33 +50,9 @@
             android:name="email"
             app:argType="string"
             app:nullable="true" />
-    </fragment>
-    <fragment
-        android:id="@+id/homeUserFragment"
-        android:name="com.example.extend1.ui.user.home.HomeUserFragment"
-        android:label="fragment_home_user"
-        tools:layout="@layout/fragment_home_user">
         <action
-            android:id="@+id/action_homeUserFragment_to_courseUserFragment"
-            app:destination="@id/courseUserFragment" />
-        <action
-            android:id="@+id/action_homeUserFragment_to_profileUserFragment"
-            app:destination="@id/profileUserFragment" />
-        <action
-            android:id="@+id/action_homeUserFragment_to_chatFragment"
-            app:destination="@id/chatFragment" />
-        <action
-            android:id="@+id/action_homeUserFragment_to_detailCompanyFragment"
-            app:destination="@id/detailCompanyFragment" />
-        <action
-            android:id="@+id/action_homeUserFragment_to_detailCompanyFragment2"
-            app:destination="@id/detailCompanyFragment" />
-        <action
-            android:id="@+id/action_homeUserFragment_to_detailCompanyFragment3"
-            app:destination="@id/detailCompanyFragment" />
-        <action
-            android:id="@+id/action_homeUserFragment_to_detailCompanyFragment4"
-            app:destination="@id/detailCompanyFragment" />
+            android:id="@+id/action_registerFragment_to_homeStudentFragment"
+            app:destination="@id/homeStudentFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeAdminFragment"
@@ -81,33 +60,68 @@
         android:label="fragment_home_admin"
         tools:layout="@layout/fragment_home_admin">
         <action
+            android:id="@+id/action_homeAdminFragment_to_courseAdminFragment"
+            app:destination="@id/courseAdminFragment" />
+        <action
             android:id="@+id/action_homeAdminFragment_to_profileAdminFragment"
             app:destination="@id/profileAdminFragment" />
         <action
             android:id="@+id/action_homeAdminFragment_to_chatFragment"
             app:destination="@id/chatFragment" />
         <action
-            android:id="@+id/action_homeAdminFragment_to_addDataSiswaFragment"
+            android:id="@+id/action_homeAdminFragment_to_detailCompanyFragment"
+            app:destination="@id/detailCompanyFragment" />
+        <action
+            android:id="@+id/action_homeAdminFragment_to_detailCompanyFragment2"
+            app:destination="@id/detailCompanyFragment" />
+        <action
+            android:id="@+id/action_homeAdminFragment_to_detailCompanyFragment3"
+            app:destination="@id/detailCompanyFragment" />
+        <action
+            android:id="@+id/action_homeAdminFragment_to_detailCompanyFragment4"
+            app:destination="@id/detailCompanyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeCompanyFragment"
+        android:name="com.example.extend1.ui.company.home.HomeCompanyFragment"
+        android:label="fragment_home_company"
+        tools:layout="@layout/fragment_home_company">
+        <action
+            android:id="@+id/action_homeCompanyFragment_to_profileCompanyFragment"
+            app:destination="@id/profileCompanyFragment" />
+        <action
+            android:id="@+id/action_homeCompanyFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+        <action
+            android:id="@+id/action_homeCompanyFragment_to_addDataSiswaFragment"
             app:destination="@id/addDataSiswaFragment" />
         <action
-            android:id="@+id/action_homeAdminFragment_to_tambahSiswaFragment"
+            android:id="@+id/action_homeCompanyFragment_to_tambahSiswaFragment"
             app:destination="@id/tambahSiswaFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/profileCompanyFragment"
+        android:name="com.example.extend1.ui.company.profile.ProfileCompanyFragment"
+        android:label="fragment_profile_company"
+        tools:layout="@layout/fragment_profile_company" >
+        <action
+            android:id="@+id/action_profileCompanyFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/courseAdminFragment"
+        android:name="com.example.extend1.ui.admin.course.CourseAdminFragment"
+        android:label="fragment_course_admin"
+        tools:layout="@layout/fragment_course_admin" />
     <fragment
         android:id="@+id/profileAdminFragment"
         android:name="com.example.extend1.ui.admin.profile.ProfileAdminFragment"
         android:label="fragment_profile_admin"
-        tools:layout="@layout/fragment_profile_admin" />
-    <fragment
-        android:id="@+id/courseUserFragment"
-        android:name="com.example.extend1.ui.user.course.CourseUserFragment"
-        android:label="fragment_course_user"
-        tools:layout="@layout/fragment_course_user" />
-    <fragment
-        android:id="@+id/profileUserFragment"
-        android:name="com.example.extend1.ui.user.profile.ProfileUserFragment"
-        android:label="fragment_profile_user"
-        tools:layout="@layout/fragment_profile_user" />
+        tools:layout="@layout/fragment_profile_admin" >
+        <action
+            android:id="@+id/action_profileAdminFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/chatFragment"
         android:name="com.example.extend1.ui.main.chat.ChatFragment"
@@ -122,17 +136,20 @@
             android:id="@+id/action_splashFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment" />
         <action
+            android:id="@+id/action_splashFragment_to_homeCompanyFragment"
+            app:destination="@id/homeCompanyFragment" />
+        <action
             android:id="@+id/action_splashFragment_to_homeAdminFragment"
             app:destination="@id/homeAdminFragment" />
         <action
-            android:id="@+id/action_splashFragment_to_homeUserFragment"
-            app:destination="@id/homeUserFragment" />
+            android:id="@+id/action_splashFragment_to_homeStudentFragment"
+            app:destination="@id/homeStudentFragment" />
     </fragment>
     <fragment
         android:id="@+id/addDataSiswaFragment"
-        android:name="com.example.extend1.ui.admin.home.AddDataSiswaFragment"
+        android:name="com.example.extend1.ui.company.home.AddDataSiswaFragment"
         android:label="fragment_add_data_siswa"
-        tools:layout="@layout/fragment_add_data_siswa" >
+        tools:layout="@layout/fragment_add_data_siswa">
         <action
             android:id="@+id/action_addDataSiswaFragment_to_laporanEvaluasiFragment"
             app:destination="@id/laporanEvaluasiFragment" />
@@ -142,31 +159,60 @@
     </fragment>
     <fragment
         android:id="@+id/laporanEvaluasiFragment"
-        android:name="com.example.extend1.ui.admin.home.LaporanEvaluasiFragment"
+        android:name="com.example.extend1.ui.company.home.LaporanEvaluasiFragment"
         android:label="fragment_laporan_evaluasi"
         tools:layout="@layout/fragment_laporan_evaluasi" />
     <fragment
         android:id="@+id/logbookFragment"
-        android:name="com.example.extend1.ui.admin.home.LogbookFragment"
+        android:name="com.example.extend1.ui.company.home.LogbookFragment"
         android:label="fragment_logbook"
         tools:layout="@layout/fragment_logbook" />
     <fragment
         android:id="@+id/tambahSiswaFragment"
-        android:name="com.example.extend1.ui.admin.tambahSiswa.TambahSiswaFragment"
+        android:name="com.example.extend1.ui.company.tambahSiswa.TambahSiswaFragment"
         android:label="fragment_tambah_siswa"
         tools:layout="@layout/fragment_tambah_siswa" />
     <fragment
         android:id="@+id/detailCompanyFragment"
-        android:name="com.example.extend1.ui.user.home.DetailCompanyFragment"
+        android:name="com.example.extend1.ui.admin.home.DetailCompanyFragment"
         android:label="fragment_detail_company"
-        tools:layout="@layout/fragment_detail_company" >
+        tools:layout="@layout/fragment_detail_company">
         <action
             android:id="@+id/action_detailCompanyFragment_to_detailKegiatanSiswaFragment"
             app:destination="@id/detailKegiatanSiswaFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailKegiatanSiswaFragment"
-        android:name="com.example.extend1.ui.user.home.DetailKegiatanSiswaFragment"
+        android:name="com.example.extend1.ui.admin.home.DetailKegiatanSiswaFragment"
         android:label="fragment_detail_kegiatan_siswa"
         tools:layout="@layout/fragment_detail_kegiatan_siswa" />
+    <fragment
+        android:id="@+id/homeStudentFragment"
+        android:name="com.example.extend1.ui.student.home.HomeStudentFragment"
+        android:label="fragment_home_student"
+        tools:layout="@layout/fragment_home_student" >
+        <action
+            android:id="@+id/action_homeStudentFragment_to_profileStudentFragment"
+            app:destination="@id/profileStudentFragment" />
+        <action
+            android:id="@+id/action_homeStudentFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+        <action
+            android:id="@+id/action_homeStudentFragment_to_courseStudentFragment"
+            app:destination="@id/courseStudentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileStudentFragment"
+        android:name="com.example.extend1.ui.student.profile.ProfileStudentFragment"
+        android:label="fragment_profile_student"
+        tools:layout="@layout/fragment_profile_student" >
+        <action
+            android:id="@+id/action_profileStudentFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/courseStudentFragment"
+        android:name="com.example.extend1.ui.student.course.CourseStudentFragment"
+        android:label="fragment_course_student"
+        tools:layout="@layout/fragment_course_student" />
 </navigation>

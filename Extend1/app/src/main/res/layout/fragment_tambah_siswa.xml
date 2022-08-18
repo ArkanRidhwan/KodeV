@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/teal_700"
-    tools:context=".ui.admin.tambahSiswa.TambahSiswaFragment">
+    tools:context=".ui.company.tambahSiswa.TambahSiswaFragment">
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/tv_tittleNamaTambahSiswa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/et_namaTambahSiswa"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -29,11 +29,11 @@
         android:inputType="textPersonName"
         android:textColor="@color/black"
         android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/textView10"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        app:layout_constraintStart_toStartOf="@+id/tv_tittleNamaTambahSiswa"
+        app:layout_constraintTop_toBottomOf="@+id/tv_tittleNamaTambahSiswa" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/tv_tittlePekerjaanTambahSiswa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -41,11 +41,11 @@
         android:text="Pekerjaan"
         android:textColor="@color/black"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/textView10"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintStart_toStartOf="@+id/tv_tittleNamaTambahSiswa"
+        app:layout_constraintTop_toBottomOf="@+id/et_namaTambahSiswa" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/et_pekerjaanTambahSiswa"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -53,11 +53,11 @@
         android:inputType="textPersonName"
         android:textColor="@color/black"
         android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintStart_toStartOf="@+id/tv_tittlePekerjaanTambahSiswa"
+        app:layout_constraintTop_toBottomOf="@+id/tv_tittlePekerjaanTambahSiswa" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/tv_tittleUmurTambahSiswa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -65,63 +65,64 @@
         android:text="Umur"
         android:textColor="@color/black"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintStart_toStartOf="@+id/tv_tittlePekerjaanTambahSiswa"
+        app:layout_constraintTop_toBottomOf="@+id/et_pekerjaanTambahSiswa" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/et_umurTambahSiswa"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Masukkan Umur"
+        android:inputType="textPersonName"
         android:textColor="@color/black"
         android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintStart_toStartOf="@+id/tv_tittleUmurTambahSiswa"
+        app:layout_constraintTop_toBottomOf="@+id/tv_tittleUmurTambahSiswa" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/tv_tittleFotoTambahSiswa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Tambah Foto"
-        android:textSize="16sp"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_tittleUmurTambahSiswa"
+        app:layout_constraintTop_toBottomOf="@+id/et_umurTambahSiswa" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/iv_fotoTambahSiswa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/ic_add_image"
-        app:layout_constraintStart_toStartOf="@+id/textView15"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        app:layout_constraintStart_toStartOf="@+id/tv_tittleFotoTambahSiswa"
+        app:layout_constraintTop_toBottomOf="@+id/tv_tittleFotoTambahSiswa" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_submitTambahSiswa"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_btn"
         android:text="Submit"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName3"
+        app:layout_constraintEnd_toEndOf="@+id/et_umurTambahSiswa"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName3"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintStart_toStartOf="@+id/et_umurTambahSiswa"
+        app:layout_constraintTop_toBottomOf="@+id/iv_fotoTambahSiswa" />
 
     <ProgressBar
         android:id="@+id/progress_circular"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:visibility="gone"
         android:indeterminateTint="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName3"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/et_umurTambahSiswa"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName3"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintStart_toStartOf="@+id/et_umurTambahSiswa"
+        app:layout_constraintTop_toBottomOf="@+id/iv_fotoTambahSiswa" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

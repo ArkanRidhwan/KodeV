@@ -1,14 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.admin.profile.ProfileAdminFragment">
+    tools:context=".ui.admin.profile.ProfileAdminFragment"
+    android:background="@color/teal_700">
 
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_pictureProfileAdmin"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearance="@style/roundProfile"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_profile" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/tv_ubahFotoProfileSiswa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Profile Admin" />
+        android:layout_marginTop="8dp"
+        android:text="Change profile picture"
+        android:textColor="#0048FF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/iv_pictureProfileAdmin"
+        app:layout_constraintStart_toStartOf="@+id/iv_pictureProfileAdmin"
+        app:layout_constraintTop_toBottomOf="@+id/iv_pictureProfileAdmin" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="56dp"
+        android:paddingStart="3dp"
+        android:text="Nama Profile"
+        android:textColor="#575454"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ubahFotoProfileSiswa" />
+
+    <EditText
+        android:id="@+id/et_namaProfileAdmin"
+        android:layout_width="355dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Tulis nama profile"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:paddingStart="3dp"
+        android:text="Nomor telepon"
+        android:textColor="#575454"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/et_namaProfileAdmin" />
+
+    <EditText
+        android:id="@+id/et_nomorTeleponAdmin"
+        android:layout_width="355dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Tulis nomor telepon"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/textView15"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_submitProfileCompany"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bg_btn_profile"
+        android:textColor="@color/white"
+        android:text="Submit"
+        app:layout_constraintEnd_toEndOf="@+id/et_nomorTeleponAdmin"
+        app:layout_constraintStart_toStartOf="@+id/et_nomorTeleponAdmin"
+        app:layout_constraintTop_toBottomOf="@+id/et_nomorTeleponAdmin" />
+
+    <ImageView
+        android:id="@+id/iv_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="18dp"
+        android:src="@drawable/ic_logout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

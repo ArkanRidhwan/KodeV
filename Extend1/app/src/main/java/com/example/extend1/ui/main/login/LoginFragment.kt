@@ -14,8 +14,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.extend1.R
 import com.example.extend1.databinding.FragmentLoginBinding
-import com.example.extend1.utils.Constant.USER_ID
-import com.example.extend1.utils.Constant.USER_ROLE
+import com.example.extend1.utils.Constant.ID
+import com.example.extend1.utils.Constant.ROLE
 import com.example.extend1.utils.getInstance
 import com.example.extend1.utils.gone
 import com.example.extend1.utils.showToast
@@ -30,7 +30,6 @@ import com.google.firebase.auth.GoogleAuthProvider
 class LoginFragment : Fragment() {
 
     companion object {
-        private const val RC_SIGN_IN = 12
         private const val TAG = "LoginFragment"
     }
 
@@ -59,10 +58,14 @@ class LoginFragment : Fragment() {
         googleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)
 
         auth = FirebaseAuth.getInstance()
-        if (args.role == getString(R.string.user))
-            binding.tvLoginTitleUser.visible()
-        else
-            binding.tvLoginTittleAdmin.visible()
+        when (args.role) {
+            getString(R.string.admin) -> binding.tvLoginTitleAdmin.visible()
+            getString(R.string.company) -> binding.tvLoginTittleCompany.visible()
+            else -> {
+                binding.tvLoginTittleStudent.visible()
+            }
+        }
+
 
         binding.apply {
             ivGoogleSignIn.setOnClickListener {
@@ -91,35 +94,50 @@ class LoginFragment : Fragment() {
                 } else {
                     btnLogin.gone()
                     progressCircular.visible()
-                    if (args.role == getString(R.string.user)) {
-                        loginViewModel.loginUserByEmailPassword(email, password)
-                            .observe(viewLifecycleOwner) {
-                                if (it != null) {
-                                    loginFirebase()
-                                    getInstance(requireContext()).putString(USER_ID, it.id)
-                                    getInstance(requireContext()).putString(
-                                        USER_ROLE,
-                                        getString(R.string.user)
-                                    )
-                                } else {
-                                    requireContext().showToast("Email atau Password Salah")
-                                    binding.btnLogin.visible()
-                                    binding.progressCircular.gone()
+
+                    when (args.role) {
+                        getString(R.string.admin) -> {
+                            loginViewModel.loginAdminByEmailPassword(email, password)
+                                .observe(viewLifecycleOwner) {
+                                    if (it != null) {
+                                        loginFirebase()
+                                        getInstance(requireContext()).putString(ID, it.id)
+                                        getInstance(requireContext()).putString(ROLE, getString(R.string.admin))
+                                    } else {
+                                        requireContext().showToast("Email atau Password Salah")
+                                        binding.btnLogin.visible()
+                                        binding.progressCircular.gone()
+                                    }
                                 }
-                            }
-                    } else {
-                        loginViewModel.loginAdminByEmailPassword(email, password)
-                            .observe(viewLifecycleOwner) {
-                                if (it != null) {
-                                    loginFirebase()
-                                    getInstance(requireContext()).putString(USER_ID, it.id)
-                                    getInstance(requireContext()).putString(USER_ROLE, getString(R.string.admin))
-                                } else {
-                                    requireContext().showToast("Email atau Password Salah")
-                                    binding.btnLogin.visible()
-                                    binding.progressCircular.gone()
+                        }
+                        getString(R.string.company) -> {
+                            loginViewModel.loginCompanyByEmailPassword(email, password)
+                                .observe(viewLifecycleOwner) {
+                                    if (it != null) {
+                                        loginFirebase()
+                                        getInstance(requireContext()).putString(ID, it.id)
+                                        getInstance(requireContext()).putString(ROLE, getString(R.string.company))
+                                    } else {
+                                        requireContext().showToast("Email atau password salah")
+                                        binding.btnLogin.visible()
+                                        binding.progressCircular.gone()
+                                    }
                                 }
-                            }
+                        }
+                        getString(R.string.student) -> {
+                            loginViewModel.loginStudentByEmailPassword(email, password)
+                                .observe(viewLifecycleOwner) {
+                                    if (it != null) {
+                                        loginFirebase()
+                                        getInstance(requireContext()).putString(ID, it.id)
+                                        getInstance(requireContext()).putString(ROLE, getString(R.string.student))
+                                    } else {
+                                        requireContext().showToast("Email atau password salah")
+                                        binding.btnLogin.visible()
+                                        binding.progressCircular.gone()
+                                    }
+                                }
+                        }
                     }
                 }
             }
@@ -130,18 +148,20 @@ class LoginFragment : Fragment() {
         val signInIntent = googleSignInClient.signInIntent
         resultLauncher.launch(signInIntent)
     }
-    private var resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == Activity.RESULT_OK) {
-            val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
-            try {
-                val account = task.getResult(ApiException::class.java)!!
-                firebaseAuthWithGoogle(account.idToken!!)
-                Log.d(TAG, "firebaseAuthWithGoogle:" + account.id)
-            } catch (e: ApiException) {
-                Log.w(TAG, "Google sign in failed", e)
+
+    private var resultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
+                try {
+                    val account = task.getResult(ApiException::class.java)!!
+                    firebaseAuthWithGoogle(account.idToken!!)
+                    Log.d(TAG, "firebaseAuthWithGoogle:" + account.id)
+                } catch (e: ApiException) {
+                    Log.w(TAG, "Google sign in failed", e)
+                }
             }
         }
-    }
 
     private fun firebaseAuthWithGoogle(idToken: String) {
         binding.btnLogin.gone()
@@ -160,34 +180,63 @@ class LoginFragment : Fragment() {
     }
 
     private fun updateUI(email: String) {
-        if (args.role == getString(R.string.user)) {
-            loginViewModel.loginUserByEmail(email).observe(viewLifecycleOwner) {
-                if (it != null) {
-                    getInstance(requireContext()).putString(USER_ID, it.id)
-                    getInstance(requireContext()).putString(USER_ROLE, getString(R.string.user))
-                    findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeUserFragment())
-                    requireContext().showToast("Login Berhasil, Welcome ${auth.currentUser?.email}")
-                } else {
-                    val action = LoginFragmentDirections.actionLoginFragmentToRegisterFragment(args.role, email)
-                    findNavController().navigate(action)
-                    requireContext().showToast("User Belum Terdaftar, Harap Lengkapi Data Diri")
+        when (args.role) {
+            getString(R.string.admin) -> {
+                loginViewModel.loginAdminByEmail(email).observe(viewLifecycleOwner) {
+                    if (it != null) {
+                        getInstance(requireContext()).putString(ID, it.id)
+                        getInstance(requireContext()).putString(ROLE, getString(R.string.admin))
+                        findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeAdminFragment())
+                        requireContext().showToast("Login Berhasil, Welcome ${auth.currentUser?.email}")
+                    } else {
+                        val action = LoginFragmentDirections.actionLoginFragmentToRegisterFragment(
+                            args.role,
+                            email
+                        )
+                        findNavController().navigate(action)
+                        requireContext().showToast("User Belum Terdaftar, Harap Lengkapi Data Diri")
+                    }
+                    binding.btnLogin.visible()
+                    binding.progressCircular.gone()
                 }
-                binding.btnLogin.visible()
-                binding.progressCircular.gone()
             }
-        } else {
-            loginViewModel.loginAdminByEmail(email).observe(viewLifecycleOwner) {
-                if (it != null) {
-                    getInstance(requireContext()).putString(USER_ID, it.id)
-                    getInstance(requireContext()).putString(USER_ROLE, getString(R.string.user))
-                    findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeAdminFragment())
-                } else {
-                    val action = LoginFragmentDirections.actionLoginFragmentToRegisterFragment(args.role, email)
-                    findNavController().navigate(action)
-                    requireContext().showToast("Admin Belum Terdaftar, Harap Lengkapi Data Diri")
+            getString(R.string.company) -> {
+                loginViewModel.loginCompanyByEmail(email).observe(viewLifecycleOwner) {
+                    if (it != null) {
+                        getInstance(requireContext()).putString(ID, it.id)
+                        getInstance(requireContext()).putString(ROLE, getString(R.string.company))
+                        findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeCompanyFragment())
+                        requireContext().showToast("Login Berhasil, Welcome ${auth.currentUser?.email}")
+                    } else {
+                        val action = LoginFragmentDirections.actionLoginFragmentToRegisterFragment(
+                            args.role,
+                            email
+                        )
+                        findNavController().navigate(action)
+                        requireContext().showToast("Admin Belum Terdaftar, Harap Lengkapi Data Diri")
+                    }
+                    binding.btnLogin.visible()
+                    binding.progressCircular.gone()
                 }
-                binding.btnLogin.visible()
-                binding.progressCircular.gone()
+            }
+            getString(R.string.student) -> {
+                loginViewModel.loginAdminByEmail(email).observe(viewLifecycleOwner) {
+                    if (it != null) {
+                        getInstance(requireContext()).putString(ID, it.id)
+                        getInstance(requireContext()).putString(ROLE, getString(R.string.student))
+                        findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeStudentFragment())
+                        requireContext().showToast("Login Berhasil, Welcome ${auth.currentUser?.email}")
+                    } else {
+                        val action = LoginFragmentDirections.actionLoginFragmentToRegisterFragment(
+                            args.role,
+                            email
+                        )
+                        findNavController().navigate(action)
+                        requireContext().showToast("Student belum terdaftar, harap lengkapi data diri")
+                    }
+                    binding.btnLogin.visible()
+                    binding.progressCircular.gone()
+                }
             }
         }
     }
@@ -195,10 +244,10 @@ class LoginFragment : Fragment() {
     // Login with authentication
     private fun loginFirebase() {
         requireContext().showToast("Login Berhasil")
-        if (args.role == getString(R.string.admin))
-            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeAdminFragment())
+        if (args.role == getString(R.string.company))
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeCompanyFragment())
         else
-            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeUserFragment())
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeAdminFragment())
     }
 
 }

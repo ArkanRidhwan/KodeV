@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/teal_700"
-    tools:context=".ui.user.home.DetailCompanyFragment">
+    tools:context=".ui.admin.home.DetailCompanyFragment">
 
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/iv_companyImage"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:scaleType="fitXY"
@@ -29,10 +29,11 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.177"
-        app:layout_constraintStart_toStartOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        app:layout_constraintStart_toStartOf="@+id/iv_companyImage"
+        app:layout_constraintTop_toBottomOf="@+id/iv_companyImage" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_detailCompany"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"

@@ -7,113 +7,20 @@
     android:background="@color/teal_700"
     tools:context=".ui.admin.home.HomeAdminFragment">
 
-    <!--<ImageView
-        android:id="@+id/iv_addLaporan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="160dp"
-        android:layout_marginEnd="48dp"
-        android:src="@drawable/ic_add"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Logbook"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/iv_addLogbook"
-        app:layout_constraintStart_toStartOf="@+id/iv_addLogbook"
-        app:layout_constraintTop_toBottomOf="@+id/iv_addLogbook" />
-
-    <ImageView
-        android:id="@+id/iv_addLogbook"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="160dp"
-        android:src="@drawable/ic_add"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Laporan Evaluasi"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/iv_addLaporan"
-        app:layout_constraintStart_toStartOf="@+id/iv_addLaporan"
-        app:layout_constraintTop_toBottomOf="@+id/iv_addLaporan" />
-
-    <ImageView
-        android:id="@+id/iv_addPelanggaran"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="32dp"
-        android:src="@drawable/ic_add"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Pelanggaran"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/iv_addPelanggaran"
-        app:layout_constraintStart_toStartOf="@+id/iv_addPelanggaran"
-        app:layout_constraintTop_toBottomOf="@+id/iv_addPelanggaran" />-->
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:paddingStart="5dp"
-        android:text="List Siswa Magang"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.12"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ProgressBar
-        android:id="@+id/progress_circular"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:indeterminateTint="@color/black"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_student"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="parent"
         app:spanCount="2"
-        tools:listitem="@layout/layout_list_student" />
+        tools:listitem="@layout/layout_list_admin" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_admin"
+        android:id="@+id/fab_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"

@@ -22,11 +22,11 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tv_registrationUserTittle"
+                android:id="@+id/tv_registrationAdminTittle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Registration User"
+                android:text="Admin Registration"
                 android:textColor="@color/teal_700"
                 android:textSize="30sp"
                 android:textStyle="bold"
@@ -36,11 +36,25 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_registrationAdminTittle"
+                android:id="@+id/tv_registrationCompanyTittle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Registration Admin"
+                android:text="Company Registration"
+                android:textColor="@color/teal_700"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_registrationStudetTittle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Student Registration"
                 android:textColor="@color/teal_700"
                 android:textSize="30sp"
                 android:textStyle="bold"
@@ -69,9 +83,9 @@
                 android:ems="10"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
-                app:layout_constraintEnd_toEndOf="@+id/et_npwpAdminRegister"
-                app:layout_constraintStart_toStartOf="@+id/et_npwpAdminRegister"
-                app:layout_constraintTop_toBottomOf="@+id/et_npwpAdminRegister" />
+                app:layout_constraintEnd_toEndOf="@+id/et_npwpCompanyRegister"
+                app:layout_constraintStart_toStartOf="@+id/et_npwpCompanyRegister"
+                app:layout_constraintTop_toBottomOf="@+id/et_npwpCompanyRegister" />
 
             <EditText
                 android:id="@+id/et_passwordRegister"
@@ -85,7 +99,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/et_emailRegister" />
 
             <EditText
-                android:id="@+id/et_npwpAdminRegister"
+                android:id="@+id/et_npwpCompanyRegister"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"

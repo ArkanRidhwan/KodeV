@@ -12,7 +12,8 @@ import androidx.navigation.fragment.navArgs
 import com.example.extend1.R
 import com.example.extend1.databinding.FragmentRegisterBinding
 import com.example.extend1.model.Admin
-import com.example.extend1.model.User
+import com.example.extend1.model.Company
+import com.example.extend1.model.Student
 import com.example.extend1.utils.error
 import com.example.extend1.utils.gone
 import com.example.extend1.utils.showToast
@@ -37,32 +38,32 @@ class RegisterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         auth = FirebaseAuth.getInstance()
-        if (args.role == getString(R.string.user))
-            binding.tvRegistrationUserTittle.visible()
-        else
-            binding.tvRegistrationAdminTittle.visible()
-
-        if (args.role == getString(R.string.admin))
-            binding.etNpwpAdminRegister.visible()
-        else
-            binding.etNpwpAdminRegister.gone()
-
-        if (args.email?.isNotEmpty() == true) {
-            binding.etEmailRegister.setText(args.email.toString())
+        when (args.role) {
+            getString(R.string.company) -> {
+                binding.tvRegistrationCompanyTittle.visible()
+            }
+            getString(R.string.admin) -> {
+                binding.tvRegistrationAdminTittle.visible()
+                binding.etNpwpCompanyRegister.gone()
+            }
+            else -> {
+                binding.tvRegistrationStudetTittle.visible()
+                binding.etNpwpCompanyRegister.gone()
+            }
         }
 
         auth = FirebaseAuth.getInstance()
         binding.apply {
             btnRegister.setOnClickListener {
                 val name = etNamaRegister.text.toString()
-                val npwp = etNpwpAdminRegister.text.toString()
+                val npwp = etNpwpCompanyRegister.text.toString()
                 val email = etEmailRegister.text.toString()
                 val password = etPasswordRegister.text.toString()
 
                 if (name.isEmpty()) {
                     etNamaRegister.error("Name Tidak Boleh Kosong")
-                } else if (args.role == getString(R.string.admin) && npwp.isEmpty()) {
-                    etNpwpAdminRegister.error("NPWP tidak bisa kosong")
+                } else if (args.role == getString(R.string.company) && npwp.isEmpty()) {
+                    etNpwpCompanyRegister.error("NPWP tidak bisa kosong")
                 } else if (email.isEmpty()) {
                     etEmailRegister.error("Email tidak bisa kosong")
                 } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
@@ -72,34 +73,13 @@ class RegisterFragment : Fragment() {
                 } else {
                     btnRegister.gone()
                     progressBar.visible()
-                    if (args.role == getString(R.string.user)) {
-                        val user = User(
+                    if (args.role == getString(R.string.admin)) {
+                        val admin = Admin(
                             email = email,
                             password = password,
                             name = name
                         )
                         // Save user to realtime database
-                        registerViewModel.saveUser(user).observe(viewLifecycleOwner) {
-                            if (it == true) {
-                                requireContext().showToast("Registrasi Berhasil")
-                                val action =
-                                    RegisterFragmentDirections.actionRegisterFragmentToLoginFragment(
-                                        args.role
-                                    )
-                                findNavController().navigate(action)
-                            } else {
-                                btnRegister.visible()
-                                progressBar.gone()
-                                requireContext().showToast("Registrasi User Gagal")
-                            }
-                        }
-                    } else {
-                        val admin = Admin(
-                            name = name,
-                            npwp = npwp,
-                            email = email,
-                            password = password
-                        )
                         registerViewModel.saveAdmin(admin).observe(viewLifecycleOwner) {
                             if (it == true) {
                                 requireContext().showToast("Registrasi Berhasil")
@@ -111,7 +91,47 @@ class RegisterFragment : Fragment() {
                             } else {
                                 btnRegister.visible()
                                 progressBar.gone()
-                                requireContext().showToast("Registrasi Admin Gagal")
+                                requireContext().showToast("Registrasi Gagal")
+                            }
+                        }
+                    } else if (args.role == getString(R.string.company)) {
+                        val company = Company(
+                            name = name,
+                            npwp = npwp,
+                            email = email,
+                            password = password
+                        )
+                        registerViewModel.saveCompany(company).observe(viewLifecycleOwner) {
+                            if (it == true) {
+                                requireContext().showToast("Registrasi Berhasil")
+                                val action =
+                                    RegisterFragmentDirections.actionRegisterFragmentToLoginFragment(
+                                        args.role
+                                    )
+                                findNavController().navigate(action)
+                            } else {
+                                btnRegister.visible()
+                                progressBar.gone()
+                                requireContext().showToast("Registrasi Gagal")
+                            }
+                        }
+                    } else {
+                        val student = Student(
+                            name = name,
+                            email = email,
+                            password = password
+                        )
+                        registerViewModel.saveStudent(student).observe(viewLifecycleOwner) {
+                            if (it == true) {
+                                requireContext().showToast("Registrasi Berhasil")
+                                val action = RegisterFragmentDirections.actionRegisterFragmentToLoginFragment(
+                                    args.role
+                                )
+                                findNavController().navigate(action)
+                            } else {
+                                btnRegister.visible()
+                                progressBar.visible()
+                                requireContext().showToast("Registrasi Gagal")
                             }
                         }
                     }

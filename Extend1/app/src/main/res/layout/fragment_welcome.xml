@@ -12,7 +12,7 @@
         android:id="@+id/tv_tittle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="196dp"
+        android:layout_marginTop="170dp"
         android:text="Welcome!"
         android:textColor="@color/white"
         android:textSize="30sp"
@@ -25,12 +25,12 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
         android:layout_width="300dp"
-        android:layout_height="200dp"
+        android:layout_height="270dp"
+        android:layout_marginTop="32dp"
         app:cardCornerRadius="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/tv_tittle">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -50,24 +50,37 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_admin"
+                android:id="@+id/btn_company"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:background="@drawable/bg_btn"
-                android:text="Admin"
+                android:text="Company"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="@+id/tv_subTittle"
                 app:layout_constraintStart_toStartOf="@+id/tv_subTittle"
                 app:layout_constraintTop_toBottomOf="@+id/tv_subTittle" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_user"
+                android:id="@+id/btn_admin"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:background="@drawable/bg_btn"
-                android:text="User"
+                android:text="Admin"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/btn_company"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/btn_company"
+                app:layout_constraintTop_toBottomOf="@+id/btn_company" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_student"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_btn"
+                android:text="Student"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="@+id/btn_admin"
                 app:layout_constraintHorizontal_bias="0.0"
