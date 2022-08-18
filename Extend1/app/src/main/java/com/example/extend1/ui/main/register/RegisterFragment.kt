@@ -30,6 +30,10 @@ class RegisterFragment : Fragment() {
     private lateinit var binding: FragmentRegisterBinding
     private lateinit var auth: FirebaseAuth
 
+    private var company = Company()
+    private lateinit var listCompany: ArrayList<Company>
+    private lateinit var listNameCompany: ArrayList<String>
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,9 +43,30 @@ class RegisterFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val dropdownPerusahaan = resources.getStringArray(R.array.Perusahaan)
-        val dropdownAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, dropdownPerusahaan)
-        binding.autoCompleteTextView.setAdapter(dropdownAdapter)
+
+        listCompany = ArrayList()
+        listNameCompany = ArrayList()
+
+        listCompany.clear()
+        listNameCompany.clear()
+        registerViewModel.getCompany().observe(viewLifecycleOwner) { datas ->
+            if (datas?.isNotEmpty() == true) {
+                listCompany.addAll(datas)
+
+                for (company in listCompany) {
+                    listNameCompany.add(company.name)
+                }
+                val dropdownAdapter =
+                    ArrayAdapter(requireContext(), R.layout.dropdown_item, listNameCompany)
+                binding.autoCompleteTextView.setAdapter(dropdownAdapter)
+
+                binding.autoCompleteTextView.onItemClickListener =
+                    AdapterView.OnItemClickListener { _, _, position, _ ->
+                        company = listCompany[position]
+                    }
+            }
+        }
+
 
         auth = FirebaseAuth.getInstance()
         when (args.role) {
@@ -128,12 +153,13 @@ class RegisterFragment : Fragment() {
                             email = email,
                             password = password
                         )
-                        registerViewModel.saveStudent(student).observe(viewLifecycleOwner) {
+                        registerViewModel.saveStudent(student, company).observe(viewLifecycleOwner) {
                             if (it == true) {
                                 requireContext().showToast("Registrasi Berhasil")
-                                val action = RegisterFragmentDirections.actionRegisterFragmentToLoginFragment(
-                                    args.role
-                                )
+                                val action =
+                                    RegisterFragmentDirections.actionRegisterFragmentToLoginFragment(
+                                        args.role
+                                    )
                                 findNavController().navigate(action)
                             } else {
                                 btnRegister.visible()

@@ -7,7 +7,8 @@ data class Student(
     val password: String = "",
     val job: String = "",
     val age: String = "",
-    val image: String = ""
+    val image: String = "",
+    val company: Company? = null
 ) {
     companion object {
         fun saveStudent(
@@ -17,9 +18,10 @@ data class Student(
             password: String,
             job: String,
             age: String,
-            image: String
+            image: String,
+            company: Company,
         ): Student {
-            return Student(id, email, name, password, job, age, image)
+            return Student(id, email, name, password, job, age, image, company)
         }
     }
 }

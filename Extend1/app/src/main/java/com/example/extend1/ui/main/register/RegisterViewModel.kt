@@ -9,9 +9,13 @@ import com.example.extend1.model.Student
 import com.example.extend1.utils.Constant.COLL_ADMIN
 import com.example.extend1.utils.Constant.COLL_COMPANY
 import com.example.extend1.utils.Constant.COLL_STUDENT
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import java.util.*
+import kotlin.collections.ArrayList
 
 class RegisterViewModel() : ViewModel() {
 
@@ -59,7 +63,7 @@ class RegisterViewModel() : ViewModel() {
         return status
     }
 
-    fun saveStudent(data: Student): LiveData<Boolean> {
+    fun saveStudent(data: Student, company: Company): LiveData<Boolean> {
         val studentId = UUID.randomUUID().toString()
         val status = MutableLiveData<Boolean>()
         val student = Student.saveStudent(
@@ -69,7 +73,8 @@ class RegisterViewModel() : ViewModel() {
             password = data.password,
             job = data.job,
             age = data.age,
-            image = data.image
+            image = data.image,
+            company = company
         )
         collStudent.child(studentId).setValue(student)
             .addOnCompleteListener {
@@ -79,5 +84,29 @@ class RegisterViewModel() : ViewModel() {
                 status.value = false
             }
         return status
+    }
+
+    fun getCompany(): LiveData<List<Company>?> {
+        val dataCompany = MutableLiveData<List<Company>?>()
+        val company = ArrayList<Company>()
+        collCompany.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    company.clear()
+                    for (i in snapshot.children) {
+                        val valueCompany = i.getValue(Company::class.java)
+                        if (valueCompany != null) {
+                            company.add(valueCompany)
+                        }
+                    }
+                    dataCompany.value = company
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                company.clear()
+            }
+        })
+        return dataCompany
     }
 }

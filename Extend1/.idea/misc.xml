@@ -3,50 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/drawable/bg_btn.xml" value="0.1675" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/drawable/bg_btn_profile.xml" value="0.1675" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/drawable/ic_add_image.xml" value="0.165" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/drawable/ic_add_laporan.xml" value="0.165" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/drawable/ic_add_siswa.xml" value="0.1" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/drawable/ic_download_laporan.xml" value="0.156" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/dropdown_item.xml" value="0.3625" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_add_data_siswa.xml" value="0.3625" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_add_document.xml" value="0.3625" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_add_logbook.xml" value="0.3484375" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_chat.xml" value="0.3625" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_course_admin.xml" value="0.25" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_course_student.xml" value="0.3625" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_detail_company.xml" value="0.1762917933130699" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_detail_kegiatan_siswa.xml" value="0.25" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_detail_kegiatan_siswa_laporan.xml" value="0.25" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_detail_kegiatan_siswa_logbook.xml" value="0.33" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_home_admin.xml" value="0.25" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_home_company.xml" value="0.25" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_home_student.xml" value="0.23097826086956522" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_home_user.xml" value="0.25" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_laporan_evaluasi.xml" value="0.25" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_logbook.xml" value="0.25" />
+        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_home_admin.xml" value="0.33" />
+        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_laporan_evaluasi.xml" value="0.3625" />
+        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_logbook.xml" value="0.2418478260869565" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_login_admin.xml" value="0.3625" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_profile_admin.xml" value="0.25" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_profile_company.xml" value="0.2545289855072464" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_profile_student.xml" value="0.25" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_register.xml" value="0.25" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_splash.xml" value="0.3625" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_tambah_siswa.xml" value="0.1" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_welcome.xml" value="0.2545289855072464" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/layout_list_admin.xml" value="0.3625" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/layout_list_artikl_course.xml" value="0.3625" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/layout_list_laporan.xml" value="0.22" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/layout_list_logbook.xml" value="0.25" />
+        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/fragment_tambah_siswa.xml" value="0.33" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/layout_list_siswa_magang.xml" value="0.3614583333333333" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/layout_list_student.xml" value="0.25" />
         <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/layout_list_user.xml" value="0.3625" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/layout/layout_list_video_course.xml" value="0.25" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/menu/bottom_nav_admin.xml" value="0.12777777777777777" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/menu/bottom_nav_company.xml" value="0.3625" />
-        <entry key="..\:/Arkan Sementara/Kodev/Extend1/app/src/main/res/menu/bottom_nav_student.xml" value="0.3614583333333333" />
         <entry key="..\:/Arkan/Github/KodeV/Extend1/app/src/main/res/drawable/bg_btn.xml" value="0.131" />
         <entry key="..\:/Arkan/Github/KodeV/Extend1/app/src/main/res/drawable/ic_add.xml" value="0.1215" />
         <entry key="..\:/Arkan/Github/KodeV/Extend1/app/src/main/res/drawable/ic_chat.xml" value="0.1215" />
@@ -70,9 +40,13 @@
         <entry key="..\:/Arkan/Github/KodeV/Extend1/app/src/main/res/layout/layout_list_user.xml" value="0.2" />
         <entry key="..\:/Arkan/Github/KodeV/Extend1/app/src/main/res/menu/bottom_nav_admin.xml" value="0.24512820512820513" />
         <entry key="..\:/Arkan/Github/KodeV/Extend1/app/src/main/res/menu/bottom_nav_user.xml" value="0.24512820512820513" />
+        <entry key="app/src/main/res/layout/dropdown_item.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/fragment_course_user.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_home_admin.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/fragment_home_student.xml" value="0.22592592592592592" />
         <entry key="app/src/main/res/layout/fragment_login_admin.xml" value="0.18888888888888888" />
         <entry key="app/src/main/res/layout/fragment_profile_admin.xml" value="0.27794871794871795" />
+        <entry key="app/src/main/res/layout/fragment_register.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_register_admin.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_tambah_siswa.xml" value="0.27794871794871795" />
