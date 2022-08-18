@@ -1,34 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    app:cardCornerRadius="25dp">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <data>
+
+        <variable
+            name="admin"
+            type="com.example.extend1.model.Admin" />
+    </data>
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="7dp">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/iv_profile"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
-            app:shapeAppearance="@style/roundimageview3"
-            tools:srcCompat="@tools:sample/avatars" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="8dp">
 
-        <TextView
-            android:id="@+id/tv_tittleUser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:text="Company"
-            android:textSize="15sp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_profile"
-            app:layout_constraintEnd_toEndOf="@+id/iv_profile"
-            app:layout_constraintStart_toStartOf="@+id/iv_profile" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.cardview.widget.CardView>
+            <TextView
+                android:id="@+id/tv_name_admin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{admin.name}"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_profile"
+                app:layout_constraintEnd_toEndOf="@+id/iv_profile"
+                app:layout_constraintStart_toStartOf="@+id/iv_profile"
+                tools:text="admin" />
+
+            <TextView
+                android:id="@+id/tv_email_admin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{admin.email}"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_profile"
+                app:layout_constraintEnd_toEndOf="@+id/iv_profile"
+                app:layout_constraintStart_toStartOf="@+id/iv_profile"
+                tools:text="email" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

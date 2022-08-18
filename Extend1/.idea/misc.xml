@@ -44,6 +44,7 @@
         <entry key="app/src/main/res/layout/fragment_course_user.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_home_admin.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_home_student.xml" value="0.22592592592592592" />
+        <entry key="app/src/main/res/layout/fragment_list_chat_admin.xml" value="0.1925925925925926" />
         <entry key="app/src/main/res/layout/fragment_login_admin.xml" value="0.18888888888888888" />
         <entry key="app/src/main/res/layout/fragment_profile_admin.xml" value="0.27794871794871795" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.28229166666666666" />
@@ -51,6 +52,7 @@
         <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_tambah_siswa.xml" value="0.27794871794871795" />
         <entry key="app/src/main/res/layout/fragment_welcome.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/layout_list_admin.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/layout_list_student.xml" value="0.22592592592592592" />
       </map>
     </option>
