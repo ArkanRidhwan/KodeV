@@ -61,4 +61,30 @@ class StudentViewModel : ViewModel() {
         })
         return dataStudent
     }
+
+    fun getStudentByCompany(companyName: String): LiveData<List<Student>?> {
+        val dataStudent = MutableLiveData<List<Student>?>()
+        val students = ArrayList<Student>()
+        collStudent.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    students.clear()
+                    for (i in snapshot.children) {
+                        val student = i.getValue(Student::class.java)
+                        if (student?.company?.name == companyName) {
+                            students.add(student)
+                        }
+                    }
+                    dataStudent.value = students
+                } else {
+                    dataStudent.value = null
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                dataStudent.value = null
+            }
+        })
+        return dataStudent
+    }
 }
