@@ -29,7 +29,6 @@ class RegisterFragment : Fragment() {
     private val registerViewModel: RegisterViewModel by viewModels()
     private lateinit var binding: FragmentRegisterBinding
     private lateinit var auth: FirebaseAuth
-
     private var company = Company()
     private lateinit var listCompany: ArrayList<Company>
     private lateinit var listNameCompany: ArrayList<String>
@@ -84,7 +83,6 @@ class RegisterFragment : Fragment() {
             }
         }
 
-        auth = FirebaseAuth.getInstance()
         binding.apply {
             btnRegister.setOnClickListener {
                 val name = etNamaRegister.text.toString()

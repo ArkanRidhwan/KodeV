@@ -43,6 +43,7 @@ class HomeCompanyFragment : Fragment() {
 
         binding.apply {
             fabAdmin.setOnClickListener {
+                findNavController().navigate(HomeCompanyFragmentDirections.actionHomeCompanyFragmentToTambahSiswaFragment())
             }
         }
 
@@ -65,7 +66,7 @@ class HomeCompanyFragment : Fragment() {
         binding.rvStudent.adapter = studentAdapter
         binding.progressCircular.visible()
         binding.rvStudent.gone()
-        studentViewModel.getStudent().observe(viewLifecycleOwner) {
+        studentViewModel.getStudentByCompany("KimiaFarma").observe(viewLifecycleOwner) {
             if (it?.isNotEmpty() == true) {
                 studentAdapter.setListData(it)
                 binding.progressCircular.gone()

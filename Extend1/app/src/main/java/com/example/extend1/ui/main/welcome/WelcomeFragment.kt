@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.extend1.R
 import com.example.extend1.databinding.FragmentWelcomeBinding
-import com.example.extend1.ui.company.home.HomeCompanyFragmentDirections
 
 class WelcomeFragment : Fragment() {
 
@@ -27,16 +26,19 @@ class WelcomeFragment : Fragment() {
 
         binding.apply {
             btnCompany.setOnClickListener {
-                val action = WelcomeFragmentDirections.actionWelcomeFragmentToLoginFragment(getString(R.string.company))
+                val action =
+                    WelcomeFragmentDirections.actionWelcomeFragmentToLoginFragment(getString(R.string.company))
                 findNavController().navigate(action)
             }
             btnAdmin.setOnClickListener {
-                val action = WelcomeFragmentDirections.actionWelcomeFragmentToLoginFragment(getString(R.string.admin))
+                val action =
+                    WelcomeFragmentDirections.actionWelcomeFragmentToLoginFragment(getString(R.string.admin))
                 findNavController().navigate(action)
             }
 
             btnStudent.setOnClickListener {
-                val action = WelcomeFragmentDirections.actionWelcomeFragmentToLoginFragment(getString(R.string.student))
+                val action =
+                    WelcomeFragmentDirections.actionWelcomeFragmentToLoginFragment(getString(R.string.student))
                 findNavController().navigate(action)
             }
         }

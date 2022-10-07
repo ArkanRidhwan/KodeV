@@ -17,7 +17,6 @@ import com.google.firebase.auth.FirebaseAuth
 class SplashFragment : Fragment() {
 
     private lateinit var binding: FragmentSplashBinding
-    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -57,8 +57,8 @@ class LoginFragment : Fragment() {
             .requestEmail()
             .build()
         googleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)
-
         auth = FirebaseAuth.getInstance()
+
         when (args.role) {
             getString(R.string.admin) -> binding.tvLoginTitleAdmin.visible()
             getString(R.string.company) -> binding.tvLoginTittleCompany.visible()
